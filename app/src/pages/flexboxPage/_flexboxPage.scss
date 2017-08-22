@@ -1,0 +1,99 @@
+$squareDimension: 100px;
+$colorP: #000;
+$colorS: #70560d;
+$bgColor: rgba(169, 154, 111, .5);
+
+
+.FlexboxPage {}
+
+.flex {
+
+	color: #fff;
+
+	/**
+	 * Possiblities 
+	  // display: flex;
+	  // flex-direction: row | row-reverse | column | column-reverse;
+	  // flex-wrap: nowrap | wrap | wrap-reverse;
+	  // flex-flow: <‘flex-direction’> || <‘flex-wrap’>
+	  // justify-content: flex-start | flex-end | center | space-between | space-around;
+	  // align-items: flex-start | flex-end | center | baseline | stretch;
+	**/
+	&__flexContainer {
+		width: 100%;
+		height: 200px;
+		//padding: 0 10px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center; 
+		background-color: $bgColor;
+	}
+
+	/**
+	 * Possibilties
+	   // order: <integer>;
+	   // flex-grow: <number>; default 0
+	   // flex-shrink: <number>; default 1
+	   // flex-basis: <length> | auto; default auto
+	   // flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+	**/
+
+	&__child {
+		width: $squareDimension;
+		height: $squareDimension;
+		text-align: center;
+		
+		&:nth-child(even) {
+			background-color: $colorP;
+		}
+		&:nth-child(odd) {
+			background-color: $colorS;
+		}
+	}
+}
+
+.flexV { 
+	&__flexContainer {
+		width: 100%;
+		height: 300px;
+		margin-top: 30px;
+		display: flex;
+		//flex-flow: column wrap;
+		flex-flow: row nowrap;
+		align-items: stretch; 
+		justify-content: space-around;
+		background-color: $bgColor;
+	}
+	&__child {
+		max-width: 100%;
+		//height: $squareDimension;
+		text-align: center;
+		color: #fff;
+		display: flex;
+		flex: 1;
+		flex-flow: column nowrap;
+		justify-content: center;
+		resize: vertical;
+
+		p {
+			display: inline-block;
+		}
+
+		&.twoColumn {
+			flex-basis: 15%;
+		}
+
+		&:nth-child(even) {
+			flex-basis: 15%;
+			background-color: $colorP;
+		}
+		&:nth-child(odd) {
+			background-color: $colorS;
+		}	
+	}
+}
+
+
+
+

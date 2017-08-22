@@ -1,0 +1,14 @@
+/***
+*
+*  Example: 
+*	.nav-item {
+*	 	padding-top: em(14px); 
+*	 	Padding-bottom: em(14px);
+*  	}
+*
+***/
+
+@function em($value) {
+	$em: $value/ 16px;
+	@return #{$em}em;
+}

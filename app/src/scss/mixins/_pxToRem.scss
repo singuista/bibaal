@@ -1,0 +1,15 @@
+/***
+*
+*  Example: 
+*	.nav-item {
+*	 	padding-top: rem(14px); 
+*	 	Padding-bottom: rem(14px);
+*  	}
+*
+***/
+
+
+@function rem($value) {
+	$rem: $value / 16px;
+	@return #{$rem}rem;
+}

@@ -1,0 +1,93 @@
+@import '../../scss/mixins/breakpoint';
+
+
+$squareDimension: 100px;
+$panelPaddingH: 4vh;
+$panelPaddingW: 4vh;
+$panelPaddingDesktopH: calc(#{$panelPaddingH * 2});
+$panelPaddingDesktopW: calc(#{$panelPaddingW * 2});
+
+
+#Intro {
+	background-color: #666;
+}
+
+#BusinessStrategy {
+	background-color: #95dba0;
+}
+
+#Partnerships {
+	background-color: #597eba;
+}
+
+#CompetitiveEdge {
+	background-color: #e2d2aa;
+}
+
+#BullionTradeManagement {
+	background-color: #d1afd1;
+}
+
+#AboutUs {
+	background-color: #c5d1af;
+}
+
+
+
+
+.panel {
+	width: 100vw;
+	min-height: 100vh;
+	padding: $panelPaddingH $panelPaddingW;
+	/* display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center; */
+	background-color: #666;
+
+	&__areaWrap {
+		height: calc(100vh - #{$panelPaddingH * 2});
+		position: relative;
+
+		@include breakpoint(desktop) {
+			height: calc(100vh - #{$panelPaddingDesktopH} * 2);
+		}
+	}
+
+	.node:nth-child(odd) {
+		background-color: fff;
+	}
+
+	@include breakpoint(desktop) {
+		padding: $panelPaddingDesktopH $panelPaddingDesktopW;
+	}
+}
+
+.contentSpace {
+	width: 100%;
+	min-height: $squareDimension;
+	text-align: center;
+	//background-color: #000;
+
+	/* &:nth-child(odd) {
+		background-color: fff;
+	} */
+
+	&.top {
+
+	}
+	&.bottom {
+		position: absolute;
+		bottom: 2px;
+	}
+}
+
+
+
+
+
+
+
+
+
+

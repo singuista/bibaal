@@ -1,0 +1,35 @@
+// Variables, mixins and functions
+@import 'scss/vars';
+
+// Bases styles, resets and dependencies
+@import 'scss/normalize';
+@import 'scss/base';
+
+
+// Utility Styles
+
+// Fonts
+@import 'scss/fonts';
+
+// Typography
+@import 'scss/typography';
+
+// Page Specific Styles
+@import 'pages/animationPage/animationPage';
+@import 'pages/flexboxPage/flexboxPage';
+
+
+// Global Page Components: Header, footer, navigations, etc...
+@import 'components/header/header';
+@import 'components/footer/footer';
+
+// App Components
+@import 'components/panel/panel';
+
+
+
+
+
+
+
+
