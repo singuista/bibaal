@@ -1,15 +1,12 @@
 // Variables, mixins and functions
 @import 'scss/vars';
 
+// Fonts
+@import 'scss/fonts';
+
 // Bases styles, resets and dependencies
 @import 'scss/normalize';
 @import 'scss/base';
-
-
-// Utility Styles
-
-// Fonts
-@import 'scss/fonts';
 
 // Typography
 @import 'scss/typography';

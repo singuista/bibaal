@@ -2,3 +2,10 @@
 @import 'mixins/pxToRem';
 @import 'mixins/fontSize';
 
+body {
+	font-family: 'open_sansregular';
+}
+
+h1, h2 {
+	font-family: 'open_sansbold';
+}

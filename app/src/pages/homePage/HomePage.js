@@ -117,41 +117,57 @@ class HomePage extends React.Component {
 					<Panel id="Intro">
 						<div className="panel__areaWrap">
 							<div className="contentSpace top">
-								<h1>Forex Hosting Solution and Bullion Trade Management</h1>
+								<h1 itemProp="headline">Forex Hosting Solution and Bullion Trade Management</h1>
 							</div>
 							<div className="contentSpace bottom">
-								Into panel
+								<p>As a FOREX solutions provider, we offer a hosting solutions to those seeking to own their own platform but cannot afford the cost of ownership or is looking for a great addition to their portfolio but do not wish to run such a service. Our solution is based upon a combined platform of FOREX and Bullion Trade Management.</p>
+
+								<button>Read More</button>
 							</div>
 						</div>
 					</Panel>
 
 					<Panel id="BusinessStrategy">
-						<div className="node">
-							Business Strategy panel
+						<div className="panel__areaWrap">
+							<div className="contentSpace bottom">
+								<h2 itemProp="headline">Business Strategy</h2>
+								<p>As a FOREX solutions provider, we offer a hosting solutions to those seeking to own their own platform but cannot afford the cost of ownership or is looking for a great addition to their portfolio but do not wish to run such a service. Our solution is based upon a combined platform of FOREX and Bullion Trade Management.</p>
+							</div>
 						</div>
 					</Panel>
 
 					<Panel id="Partnerships">
-						<div className="node">
-							Partnerships Panel
+						<div className="panel__areaWrap">
+							<div className="contentSpace top">
+								<h2 itemProp="headline">Partnerships</h2>
+								<p>The establishment in Accra, Ghana as the Premium FX Trade Management Firm. Taking advantage of experiences in Trade Floor Data Services, Financial Management and Brokering sectors, BIBBAL creates effcient and highly profitable online trade solutions.</p>
+							</div>
 						</div>
 					</Panel>
 
 					<Panel id="CompetitiveEdge">
-						<div className="node">
-							Competitive Edge panel
+						<div className="panel__areaWrap">
+							<div className="contentSpace bottom">
+								<h2 itemProp="headline">Competitive Edge</h2>
+								<p>Bridge FX’s Implementation and strategies are driven by professionals that bring high drive. This drive ensures our competitive edge of the unique combination of platform applications and returns of our various trade applications.</p>
+							</div>
 						</div>
 					</Panel>
 
 					<Panel id="BullionTradeManagement">
-						<div className="node">
-							Bullion Trade Management panel
+						<div className="panel__areaWrap">
+							<div className="contentSpace bottom">
+								<h2 itemProp="headline">Bullion Trade Management</h2>
+								<p>This Platform application is a priceless trade application offered to customers. As a holder of a hard asset, having a Gold Bullion account is unique and original for a FOREX Platform.  By having a bullion trade account delivers a great annual return for through the BTM to our customer base.</p>
+							</div>
 						</div>
 					</Panel>
 
 					<Panel id="AboutUs" itemType="http://schema.org/Organization">
-						<div className="node">
-							About Us panel
+						<div className="panel__areaWrap">
+							<div className="contentSpace top">
+								<h2 itemProp="headline">About Us</h2>
+							</div>
 						</div>
 					</Panel>
 				</div>
