@@ -1,14 +1,8 @@
 'use strict'
 
-import React         						from 'react'
-import {Link}        						from 'react-router'
-import DocumentTitle 						from 'react-document-title'
-import Panel 								from '../../components/panel/Panel'
-import AboutGallery 						from '../../components/aboutSlider/AboutSlider'
+import React, {Component}         						from 'react'
 
-const propTypes = {}
-
-class HomePage extends React.Component {
+class AboutSlider extends Component {
 	/**
 	 * Constructor
 	 * @param {object} react properties (Default)
@@ -112,75 +106,59 @@ class HomePage extends React.Component {
 	 * @return {jsx} component markup.
 	**/
 	render() {
-		return (
-			<DocumentTitle title="Bibal">
-				<div>
-					<Panel id="Intro">
-						<div className="panel__areaWrap">
-							<div className="contentSpace top">
-								<h1 itemProp="headline">Forex Hosting Solution and Bullion Trade Management</h1>
-							</div>
-							<div className="contentSpace bottom">
-								<p>As a FOREX solutions provider, we offer a hosting solutions to those seeking to own their own platform but cannot afford the cost of ownership or is looking for a great addition to their portfolio but do not wish to run such a service. Our solution is based upon a combined platform of FOREX and Bullion Trade Management.</p>
+		return(
+			<article id={this.props.id ? this.props.id : ''} className={`aboutGallery ${this.props.class ? this.props.class : ''}`} itemScope="itemscope" itemType="http://schema.org/ImageGallery">
+				{/* Slides */}
+				<figure className="aboutGallery__slide">
+					<picture>
+						<source media="all and (orientation: landscape)" srcSet="https://images2.alphacoders.com/153/thumb-1920-153272.jpg" itemProp="image" />
+						<source media="all and (orientation: portrait)" srcSet="https://i.pinimg.com/736x/0c/1d/17/0c1d178d50f2020617b2608b6864074d--death-note-cosplay-death-note-anime.jpg" itemProp="image" />
 
-								<button>Read More</button>
-							</div>
-						</div>
-					</Panel>
+ 						<img src="/images/forex-chart.jpg" srcSet="/images/forex-chart.jpg 1000w, /images/forex-chart.jpg 2000w" itemProp="image" alt="MDN" />
+					</picture>
+					<figcaption className="aboutGallery__caption" itemProp="text description"></figcaption>
+				</figure>
 
-					<Panel id="BusinessStrategy">
-						<div className="panel__areaWrap">
-							<div className="contentSpace bottom">
-								<h2 itemProp="headline">Business Strategy</h2>
-								<p>As a FOREX solutions provider, we offer a hosting solutions to those seeking to own their own platform but cannot afford the cost of ownership or is looking for a great addition to their portfolio but do not wish to run such a service. Our solution is based upon a combined platform of FOREX and Bullion Trade Management.</p>
-							</div>
-						</div>
-					</Panel>
+				{/* Nav bar */}
+				<nav className="aboutGallery__navigation">
+					<figure className="aboutGallery__navItem">
+						<picture>
+							<source media="all and (orientation: landscape)" srcSet="http://dingo.care2.com/pictures/petition_images/petition/188/907194-1490205999-wide.jpg" itemProp="image thumbnailUrl" />
+							<source media="all and (orientation: portrait)" srcSet="https://images-na.ssl-images-amazon.com/images/I/517qS8BwPZL._AC_SL230_.jpg" itemProp="image thumbnailUrl" />
 
-					<Panel id="Partnerships">
-						<div className="panel__areaWrap">
-							<div className="contentSpace top">
-								<h2 itemProp="headline">Partnerships</h2>
-								<p>The establishment in Accra, Ghana as the Premium FX Trade Management Firm. Taking advantage of experiences in Trade Floor Data Services, Financial Management and Brokering sectors, BIBBAL creates effcient and highly profitable online trade solutions.</p>
-							</div>
-						</div>
-					</Panel>
+		 					<img src="/images/forex-chart.jpg" srcSet="/images/forex-chart.jpg 1000w, /images/forex-chart.jpg 2000w" itemProp="image thumbnailUrl" alt="MDN" />
+							<figcaption className="aboutGallery__navName" itemProp="text"></figcaption>
+						</picture>
+					</figure>
+					<figure className="aboutGallery__navItem">
+						<picture>
+							<source media="all and (orientation: landscape)" srcSet="http://dingo.care2.com/pictures/petition_images/petition/188/907194-1490205999-wide.jpg" itemProp="image thumbnailUrl" />
+							<source media="all and (orientation: portrait)" srcSet="https://images-na.ssl-images-amazon.com/images/I/517qS8BwPZL._AC_SL230_.jpg" itemProp="image thumbnailUrl" />
 
-					<Panel id="CompetitiveEdge">
-						<div className="panel__areaWrap">
-							<div className="contentSpace bottom">
-								<h2 itemProp="headline">Competitive Edge</h2>
-								<p>Bridge FX’s Implementation and strategies are driven by professionals that bring high drive. This drive ensures our competitive edge of the unique combination of platform applications and returns of our various trade applications.</p>
-							</div>
-						</div>
-					</Panel>
+		 					<img src="/images/forex-chart.jpg" srcSet="/images/forex-chart.jpg 1000w, /images/forex-chart.jpg 2000w" itemProp="image thumbnailUrl" alt="MDN" />
+							<figcaption className="aboutGallery__navName" itemProp="text"></figcaption>
+						</picture>
+					</figure>
+					<figure className="aboutGallery__navItem">
+						<picture>
+							<source media="all and (orientation: landscape)" srcSet="http://dingo.care2.com/pictures/petition_images/petition/188/907194-1490205999-wide.jpg" itemProp="image thumbnailUrl" />
+							<source media="all and (orientation: portrait)" srcSet="https://images-na.ssl-images-amazon.com/images/I/517qS8BwPZL._AC_SL230_.jpg" itemProp="image thumbnailUrl" />
 
-					<Panel id="BullionTradeManagement">
-						<div className="panel__areaWrap">
-							<div className="contentSpace bottom">
-								<h2 itemProp="headline">Bullion Trade Management</h2>
-								<p>This Platform application is a priceless trade application offered to customers. As a holder of a hard asset, having a Gold Bullion account is unique and original for a FOREX Platform.  By having a bullion trade account delivers a great annual return for through the BTM to our customer base.</p>
-							</div>
-						</div>
-					</Panel>
+		 					<img src="/images/forex-chart.jpg" srcSet="/images/forex-chart.jpg 1000w, /images/forex-chart.jpg 2000w" itemProp="image thumbnailUrl" alt="MDN" />
+							<figcaption className="aboutGallery__navName" itemProp="text"></figcaption>
+						</picture>
+					</figure>
 
-					<Panel id="AboutUs" itemType="http://schema.org/Organization">
-						<div className="panel__areaWrap">
-							<AboutGallery></AboutGallery>
-						</div>
-					</Panel>
-				</div>
-				{/*<section className="home-page">
-					This is the home page!!<br />
-					<Link to="/animations">Animation Page</Link><br />
-					<Link to="/data-vision">Data Vision Page</Link><br />
-					<Link to="/flexbox">Flexbox Page</Link>
-				</section>*/}
-			</DocumentTitle>
+				</nav>
+			</article>
 		)
 	}
 }
 
-HomePage.propTypes = propTypes
+export default AboutSlider
 
-export default HomePage
+
+
+
+
+

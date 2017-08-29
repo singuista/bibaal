@@ -6,7 +6,38 @@ $panelPaddingW: 4vw;
 $panelPaddingDesktopH: calc(#{$panelPaddingH * 2});
 $panelPaddingDesktopW: calc(#{$panelPaddingW * 4});
 
+/* Panel class */
+.panel {
+	width: 100vw;
+	min-height: 100vh;
+	padding: $panelPaddingH $panelPaddingW;
+	color: #fff;
+	text-shadow: 0px 0px 6px rgba(0, 0, 0,1);
+	/* display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center; */
+	background-color: #666;
 
+	&__areaWrap {
+		height: calc(100vh - #{$panelPaddingH * 2});
+		position: relative;
+
+		@include breakpoint(desktop) {
+			height: calc(100vh - #{$panelPaddingDesktopH} * 2);
+		}
+	}
+
+	/* .node:nth-child(odd) {
+		background-color: fff;
+	} */
+
+	@include breakpoint(desktop) {
+		padding: $panelPaddingDesktopH $panelPaddingDesktopW;
+	}
+}
+
+/* Panel class ID overrides */
 #Intro {
 	//background-color: #666;
 	background: url('/images/forex-chart.jpg') center no-repeat;
@@ -34,38 +65,22 @@ $panelPaddingDesktopW: calc(#{$panelPaddingW * 4});
 }
 
 #AboutUs {
-	background-color: #c5d1af;
-}
+	//padding: $panelPaddingH 0;
+	padding: 0;
+	background-color: #000;
 
-.panel {
-	width: 100vw;
-	min-height: 100vh;
-	padding: $panelPaddingH $panelPaddingW;
-	color: #fff;
-	text-shadow: 0px 0px 6px rgba(0, 0, 0,1);
-	/* display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center; */
-	background-color: #666;
-
-	&__areaWrap {
-		height: calc(100vh - #{$panelPaddingH * 2});
+	.panel__areaWrap {
+		height: 100vh;
 		position: relative;
 
 		@include breakpoint(desktop) {
-			height: calc(100vh - #{$panelPaddingDesktopH} * 2);
+			height: 100vh;
 		}
 	}
-
-	.node:nth-child(odd) {
-		background-color: fff;
-	}
-
-	@include breakpoint(desktop) {
-		padding: $panelPaddingDesktopH $panelPaddingDesktopW;
-	}
 }
+
+
+
 
 .contentSpace {
 	width: 100%;

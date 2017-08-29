@@ -14,4 +14,10 @@
 	@else if $point == mobileonly {
 		@media (max-width: 37.5em)  { @content; }
 	}
+	@else if $point == portrait {
+		@media (orientation: portrait)  { @content; }
+	}
+	@else if $point == landscape {
+		@media (orientation: landscape)  { @content; }
+	}
 }
