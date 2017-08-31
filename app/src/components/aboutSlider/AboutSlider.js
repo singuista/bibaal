@@ -1,6 +1,17 @@
 'use strict'
 
 import React, {Component}         						from 'react'
+import PropTypes 										from 'prop-types'
+
+const propTypes = {
+	id: PropTypes.string,
+	class: PropTypes.string,
+	sliderInfo: PropTypes.oneOfType([
+		PropTypes.array, 
+		PropTypes.object
+	])
+}
+let root
 
 class AboutSlider extends Component {
 	/**
@@ -10,6 +21,99 @@ class AboutSlider extends Component {
 	**/
 	constructor(props) {
 		super(props)
+		root = this
+	}
+
+	/**
+	 * Takes in slides data and seperates out the slides and associated thumbnails
+	 * @param {object} entire data structre of slides
+	 * @return {object} jsx output for slides and thumbnail navigation
+	**/
+	parseModal(m) {
+		//console.log('info === ', m)
+		let slideArr 		= new Array(),
+			thumbnailArr 	= new Array(),
+			sl,
+			tn
+
+		m.map(function(item) {
+			console.log('item === ', item)
+			slideArr.push(item.slide)
+			thumbnailArr.push(item.thumbnail)
+		})
+
+		sl = root.generateSlides(slideArr)
+		tn = root.generateThumbNails(thumbnailArr)
+
+		return {s:sl, t:tn }
+	}
+
+	/**
+	 * Takes all slide data and parses it into jsx
+	 * @param {array} object data for slides
+	 * @return {array} jsx of each slide
+	**/
+	generateSlides(s) {
+		let slides = s.map(function(slide, i) {
+			const 	caption 		= slide.caption ? slide.caption : '',
+					classOverride 	= slide.classOverride ? classOverride : '',
+					imgData 		= slide.fallbackImg,
+					figKeyVal 		= `srcKey-${i + (Math.random() * 100)}`,
+					scrSet 			= slide.srcSet.map((set, j) => {
+
+						const keyVal = `srcKey-${j+ (Math.random() * 100)}`
+						return(
+							<source key={keyVal} media={set.media} srcSet={set.src} itemProp="image" />
+						)
+					})
+			
+			return (
+				<figure key={figKeyVal} className={`aboutGallery__slide ${classOverride}`}>
+					<picture>
+						{scrSet}
+						<img src={imgData.src} itemProp="image" alt={imgData.alt ? imgData.alt : ''} />
+					</picture>
+					<figcaption className="aboutGallery__caption" itemProp="text description">{caption}</figcaption>
+				</figure>
+			)
+		})
+
+		return slides
+	}
+
+	/**
+	 * Takes all thumbnail nav data and parses it into jsx
+	 * @param {array} object data for thumbnails
+	 * @return {array}
+	**/
+	generateThumbNails(t) {
+		let thumbNails = t.map(function(tn, i) {
+			const 	name 			= tn.name ? tn.name : '',
+					classOverride 	= tn.classOverride ? classOverride : '',
+					imgData 		= tn.fallbackImg,
+					figKeyVal 		= `srcKey-${i + (Math.random() * 100)}`,
+					scrSet 			= tn.srcSet.map((set, j) => {
+
+						const keyVal = `srcKey-${j+ (Math.random() * 100)}`
+						return(
+							<source key={keyVal} media={set.media} srcSet={set.src} itemProp="image" />
+						)
+					})
+			
+			return (
+				<figure key={figKeyVal} className={`aboutGallery__navItem  ${classOverride}`}>
+					<div className="hightlight"></div>
+					<picture>
+						{scrSet}
+
+	 					<img src={imgData.src} alt={imgData.alt ? imgData.alt : ''} itemProp="image thumbnailUrl" />
+						<figcaption className="navName" itemProp="text">{name}</figcaption>
+					</picture>
+				</figure>
+			)
+		})
+
+		return thumbNails
 	}
 
 	/**
@@ -106,54 +210,33 @@ class AboutSlider extends Component {
 	 * @return {jsx} component markup.
 	**/
 	render() {
-		return(
-			<article id={this.props.id ? this.props.id : ''} className={`aboutGallery ${this.props.class ? this.props.class : ''}`} itemScope="itemscope" itemType="http://schema.org/ImageGallery">
-				{/* Slides */}
-				<figure className="aboutGallery__slide">
-					<picture>
-						<source media="all and (orientation: landscape)" srcSet="https://images2.alphacoders.com/153/thumb-1920-153272.jpg" itemProp="image" />
-						<source media="all and (orientation: portrait)" srcSet="https://i.pinimg.com/736x/0c/1d/17/0c1d178d50f2020617b2608b6864074d--death-note-cosplay-death-note-anime.jpg" itemProp="image" />
+		const 	propsId 	= this.props.id ? this.props.id : '',
+				propsClass	= this.props.class ? this.props.class : '',
+				sliderInfo 	= this.props.sliderInfo && typeof this.props.sliderInfo === 'object' ? this.props.sliderInfo : false,
+				output 		= root.parseModal(sliderInfo)
 
- 						<img src="/images/forex-chart.jpg" srcSet="/images/forex-chart.jpg 1000w, /images/forex-chart.jpg 2000w" itemProp="image" alt="MDN" />
-					</picture>
-					<figcaption className="aboutGallery__caption" itemProp="text description"></figcaption>
-				</figure>
+		if(sliderInfo) {
+			return(
+				<article id={propsId} className={`aboutGallery ${propsClass}`} itemScope="itemscope" itemType="http://schema.org/ImageGallery">
+					{/* Slides */}
+					<div className="aboutGallery__slidesContainer">
+						{output.s}
+					</div>
 
-				{/* Nav bar */}
-				<nav className="aboutGallery__navigation">
-					<figure className="aboutGallery__navItem">
-						<picture>
-							<source media="all and (orientation: landscape)" srcSet="http://dingo.care2.com/pictures/petition_images/petition/188/907194-1490205999-wide.jpg" itemProp="image thumbnailUrl" />
-							<source media="all and (orientation: portrait)" srcSet="https://images-na.ssl-images-amazon.com/images/I/517qS8BwPZL._AC_SL230_.jpg" itemProp="image thumbnailUrl" />
-
-		 					<img src="/images/forex-chart.jpg" srcSet="/images/forex-chart.jpg 1000w, /images/forex-chart.jpg 2000w" itemProp="image thumbnailUrl" alt="MDN" />
-							<figcaption className="aboutGallery__navName" itemProp="text"></figcaption>
-						</picture>
-					</figure>
-					<figure className="aboutGallery__navItem">
-						<picture>
-							<source media="all and (orientation: landscape)" srcSet="http://dingo.care2.com/pictures/petition_images/petition/188/907194-1490205999-wide.jpg" itemProp="image thumbnailUrl" />
-							<source media="all and (orientation: portrait)" srcSet="https://images-na.ssl-images-amazon.com/images/I/517qS8BwPZL._AC_SL230_.jpg" itemProp="image thumbnailUrl" />
-
-		 					<img src="/images/forex-chart.jpg" srcSet="/images/forex-chart.jpg 1000w, /images/forex-chart.jpg 2000w" itemProp="image thumbnailUrl" alt="MDN" />
-							<figcaption className="aboutGallery__navName" itemProp="text"></figcaption>
-						</picture>
-					</figure>
-					<figure className="aboutGallery__navItem">
-						<picture>
-							<source media="all and (orientation: landscape)" srcSet="http://dingo.care2.com/pictures/petition_images/petition/188/907194-1490205999-wide.jpg" itemProp="image thumbnailUrl" />
-							<source media="all and (orientation: portrait)" srcSet="https://images-na.ssl-images-amazon.com/images/I/517qS8BwPZL._AC_SL230_.jpg" itemProp="image thumbnailUrl" />
-
-		 					<img src="/images/forex-chart.jpg" srcSet="/images/forex-chart.jpg 1000w, /images/forex-chart.jpg 2000w" itemProp="image thumbnailUrl" alt="MDN" />
-							<figcaption className="aboutGallery__navName" itemProp="text"></figcaption>
-						</picture>
-					</figure>
-
-				</nav>
-			</article>
-		)
+					{/* Nav bar */}
+					<nav className="aboutGallery__navigation">
+						{output.t}
+					</nav>
+				</article>
+			)
+		} else {
+			return(<div>No slide information provided</div>)
+		}
+		
 	}
 }
+
+AboutSlider.propTypes = propTypes
 
 export default AboutSlider
 
