@@ -11,7 +11,11 @@ const propTypes = {
 		PropTypes.object
 	])
 }
-let root
+let root,
+	slideIndex = 0,
+	slideContainer,
+	slideContainerW,
+	slidesArr
 
 class AboutSlider extends Component {
 	/**
@@ -56,7 +60,7 @@ class AboutSlider extends Component {
 	generateSlides(s) {
 		let slides = s.map(function(slide, i) {
 			const 	caption 		= slide.caption ? slide.caption : '',
-					classOverride 	= slide.classOverride ? classOverride : '',
+					classOverride 	= slide.classOverride ? slide.classOverride : '',
 					imgData 		= slide.fallbackImg,
 					figKeyVal 		= `srcKey-${i + (Math.random() * 100)}`,
 					scrSet 			= slide.srcSet.map((set, j) => {
@@ -68,7 +72,7 @@ class AboutSlider extends Component {
 					})
 			
 			return (
-				<figure key={figKeyVal} className={`aboutGallery__slide ${classOverride}`}>
+				<figure key={figKeyVal} className={`aboutGallery__slide ${classOverride}`} data-slideIndex={i}>
 					<picture>
 						{scrSet}
 						<img src={imgData.src} itemProp="image" alt={imgData.alt ? imgData.alt : ''} />
@@ -89,7 +93,7 @@ class AboutSlider extends Component {
 	generateThumbNails(t) {
 		let thumbNails = t.map(function(tn, i) {
 			const 	name 			= tn.name ? tn.name : '',
-					classOverride 	= tn.classOverride ? classOverride : '',
+					classOverride 	= tn.classOverride ? tn.classOverride : '',
 					imgData 		= tn.fallbackImg,
 					figKeyVal 		= `srcKey-${i + (Math.random() * 100)}`,
 					scrSet 			= tn.srcSet.map((set, j) => {
@@ -101,7 +105,7 @@ class AboutSlider extends Component {
 					})
 			
 			return (
-				<figure key={figKeyVal} className={`aboutGallery__navItem  ${classOverride}`}>
+				<figure key={figKeyVal} className={`aboutGallery__navItem ${classOverride}`} data-navIndex={i}>
 					<div className="hightlight"></div>
 					<picture>
 						{scrSet}
@@ -114,6 +118,72 @@ class AboutSlider extends Component {
 		})
 
 		return thumbNails
+	}
+
+	/**
+	 * Initiate Navigation controls
+	 * return {void}
+	**/
+	initNav() {
+		const navContainer 	= root.tnNav
+
+		//Delegate controls
+		navContainer.addEventListener('click', root.delegate((elem) => {
+			//select element to delegate
+			return elem.classList && elem.classList.contains('aboutGallery__navItem')
+		}, root.navButtonClick))
+
+		return
+	}
+
+	/**
+	 * Initiate Navigation controls
+	 * @param {event} event object data
+	 * return {void}
+	**/
+	navButtonClick(event) {
+		let trgt 		= event.delegateTarget
+
+		slideIndex = parseInt(trgt.getAttribute('data-navIndex'))
+
+		root.goToSlide()	
+	}
+
+	/**
+	 * Go to the slide number
+	 * return {void}
+	**/
+	goToSlide() {
+		let currentSlide 	= document.querySelector(`[data-slideIndex='${slideIndex}']`),
+			slideW 			= currentSlide.offsetWidth
+
+		slideContainer.style.transform = `translateX(-${slideIndex * slideW}px)`
+
+		return
+	}
+
+	/**
+	 * Event Delegation
+	 * @param {function} function that returns target element
+	 * ex: selectorFilter(elem) {return elem.classList && elem.classList.contains('{className}')}
+	 * @param {function} function that processes the event (callback)
+	 * ex: listener(event) { const tgt = event.delegatedTarget //Callback function}
+	 * @return {function}
+	 *
+	 * Useage example:
+	 * element.addEventsListener('click', Helpers.delegate(criteria, listener))
+	*/
+	delegate(criteria, listener) {
+		return function(e) {
+			var el = e.target
+
+			do {
+				if (!criteria(el)) continue
+				e.delegateTarget = el
+				listener.apply(this, arguments)
+				return;
+			} while( (el = el.parentNode) )
+		}
 	}
 
 	/**
@@ -132,7 +202,12 @@ class AboutSlider extends Component {
 	 * @return {void}
 	**/
 	componentDidMount() {
-		
+		slideContainer 	= root.slCon
+		slideContainerW = slideContainer.offsetWidth
+
+		window.addEventListener('resize', root.goToSlide)
+
+		root.initNav()
 	}
 
 	/**
@@ -219,12 +294,12 @@ class AboutSlider extends Component {
 			return(
 				<article id={propsId} className={`aboutGallery ${propsClass}`} itemScope="itemscope" itemType="http://schema.org/ImageGallery">
 					{/* Slides */}
-					<div className="aboutGallery__slidesContainer">
+					<div className="aboutGallery__slidesContainer" ref={(slCon) => {root.slCon = slCon}}>
 						{output.s}
 					</div>
 
 					{/* Nav bar */}
-					<nav className="aboutGallery__navigation">
+					<nav className="aboutGallery__navigation" ref={(tnNav) => {root.tnNav = tnNav}}>
 						{output.t}
 					</nav>
 				</article>
