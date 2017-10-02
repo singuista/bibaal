@@ -18,6 +18,25 @@ $panelPaddingDesktopW: calc(#{$panelPaddingW * 4});
 	justify-content: space-around;
 	align-items: center; */
 	background-color: #666;
+	background-size: cover;
+
+	&__cta {
+		margin-top: 30px;
+		padding: 12px 26px;
+		color: #fff;
+	    overflow: hidden;
+		border-radius: 50px;
+		border: 3px solid #fff;
+		background-color: rgba(0, 0, 0, .3);
+
+		&:before {
+			background-color: #000;
+		}
+
+		&.main {
+			//color: #333;
+		}
+	}
 
 	&__areaWrap {
 		height: calc(100vh - #{$panelPaddingH * 2});
@@ -61,7 +80,7 @@ $panelPaddingDesktopW: calc(#{$panelPaddingW * 4});
 }
 
 #BullionTradeManagement {
-	background-color: #d1afd1;
+	background: url('/images/bullionTrade.jpg') center no-repeat;
 }
 
 #AboutUs {
@@ -79,8 +98,28 @@ $panelPaddingDesktopW: calc(#{$panelPaddingW * 4});
 	}
 }
 
+#ContactForm {
+	background: url('/images/contactUsBG.jpg') top center no-repeat;
+	background-size: cover;
+}
 
+.ReactModal {
+	&__Overlay {
+		h3 {
+			margin-top: 40px;
+			font-size: 20px;
+			line-height: normal;
 
+			&:first-child {
+				margin-top: 10px;
+			}
+		}
+
+		p {
+			font-size: 14px;
+		}
+	}
+}
 
 .contentSpace {
 	width: 100%;
@@ -105,7 +144,11 @@ $panelPaddingDesktopW: calc(#{$panelPaddingW * 4});
 		}
 	}
 	p {
-		margin: 0;
+		margin-bottom: 1em;
+
+		:first-child {
+			margin: 0;
+		}
 	}
 
 	&.top {

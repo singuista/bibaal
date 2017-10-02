@@ -157,7 +157,7 @@ class AboutSlider extends Component {
 		let currentSlide 	= document.querySelector(`[data-slideIndex='${slideIndex}']`),
 			slideW 			= currentSlide.offsetWidth
 
-		slideContainer.style.transform = `translateX(-${slideIndex * slideW}px)`
+		slideContainer.style.transform = `translateX(-${slideIndex * slideW}px) translateZ(0)`
 
 		return
 	}
@@ -237,15 +237,16 @@ class AboutSlider extends Component {
 	}
 
 	/*
-	 * React Component method gets called before the render method and enables to define if a re-rendering is needed or can be skipped. * This method is never called on initial rendering. A boolean value must be returned.
+	 * React Component method gets called before the render method and enables to define if a re-rendering is needed or can be skipped. 
+	 * This method is never called on initial rendering. A boolean value must be returned.
 	 * @param {object} component props with updated values (nextProps)
 	 * @param {object} component state with updated values (nextState)
 	 * @return {boolean}
 	**/
 	shouldComponentUpdate(/*nextProps, nextState*/) {
 		/*console.log('Lifecycle: shouldComponentUpdate')
-		console.log(nextProps)
-		console.log(nextState)*/
+		console.log('nextProps === ', nextProps)
+		console.log('nextState === ',nextState)*/
 		//ex: return this.props.value !== nextProps.value is it not equal then it's true
 		//ex: return this.state.value === nextState.value is it equal then it's true
 		return true

@@ -4,24 +4,7 @@ import React 				from 'react'
 import PropTypes 			from 'prop-types'
 
 
-
-/**
- * Extra React PropTypes and expose them
- * Added properties and their dataTypes
-**/
-const propTypes = {
-	id: PropTypes.string,
-	className: PropTypes.string,
-	itemType: PropTypes.string,
-	triggerUpdate: PropTypes.bool,
-	children: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object
-	])
-}
-
-class Panel extends React.Component {
-
+class EmailForm extends React.Component {
 	/**
 	 * Constructor
 	 * @param {object} react properties (Default)
@@ -88,8 +71,7 @@ class Panel extends React.Component {
 		console.log(nextState)*/
 		//ex: return this.props.value !== nextProps.value is it not equal then it's true
 		//ex: return this.state.value === nextState.value is it equal then it's true
-		//return this.props.triggerUpdate ? this.props.triggerUpdate : true
-		return false
+		return true
 	}
 
 	/*
@@ -126,19 +108,20 @@ class Panel extends React.Component {
 	 * @return {jsx} component markup.
 	**/
 	render() {
-		let { className } = this.props
-
 		return (
-			<section id={this.props.id} className={`panel ${className ? className : ''}`} itemScope="itemscope" itemType={this.props.itemType ? this.props.itemType : 'http://schema.org/Article'}>
-				{this.props.children}
-			</section>
+			<form method="post" name="contactFrom" action="sendEmail.php">
+				<input type="text" placeholder="Full Name" name="fullName"></input>
+				<input type="text" placeholder="Email"name="email"></input>
+				<input type="text" placeholder="Subject"name="emailSubject"></input>
+				<textarea placeholder="Please Enter your message" name="emailMessage"></textarea>
+			</form>
 		)
 	}
 }
 
-Panel.propTypes = propTypes
+//EmailForm.propTypes = propTypes
 
-export default Panel
+export default EmailForm
 
 
 
