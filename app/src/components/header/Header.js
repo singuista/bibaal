@@ -1,6 +1,7 @@
-'use strict';
+'use strict'
 
-import { Component }     from 'react'
+import { Component }     			from 'react'
+import MainNav 						from '../mainNav/MainNav'
 
 
 class Header extends Component {
@@ -123,14 +124,31 @@ class Header extends Component {
 	render() {
 		return (
 			<header id="header" className="header" itemScope="itemscope" itemType="http://schema.org/WPHeader">
-				<div className="text-center">
-					<img itemProp="logo image" src="https://bond.co/images/bond-logo.svg" />
+				<div className="header__logoContainer ">
+					<img itemprop='logo' src="/images/bibaal-logo.jpg" />
+				</div>
+				<div className="header__navContainer">
+					<MainNav />
 				</div>
 			</header>
-		);
+		)
 	}
 }
 
 
 
-export default Header;
+export default Header
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -117,7 +117,7 @@ class Footer extends Component {
 	**/
 	render() {
 	    return (
-	    	<section>Footer Component</section>
+	    	<footer>copyright &copy; by Bibaal. All Rights Reserved.</footer>
 		)
 	}
 }

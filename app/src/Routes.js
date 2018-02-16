@@ -9,15 +9,15 @@ import { createBrowserHistory } 							from 'history'
 import App                         							from './App'
 
 //pages
-import HomePage                    							from './pages/homePage/HomePage'
 import NotFoundPage											from './pages/notFoundPage/NotFoundPage'
+import HomePage                    							from './pages/homePage/HomePage'
 
 //example pages
-import AnimationPage                    					from './examplePages/animationPage/AnimationPage'
+/*import AnimationPage                    					from './examplePages/animationPage/AnimationPage'
 import CanvasPage                    						from './examplePages/canvasPage/CanvasPage'
-import FlexboxPage                    						from './examplePages/flexboxPage/FlexboxPage'
+import FlexboxPage                    						from './examplePages/flexboxPage/FlexboxPage'*/
 
-const history = createBrowserHistory({
+export const history = createBrowserHistory({
 	/* pass a configuration object here if needed */
 })
 
@@ -27,9 +27,14 @@ export default (
 			<Switch>
 				{/*<Route exact path="/" component={HomePage} />*/}
 				<Route exact path="/" component={HomePage} />
-				<Route exact path="/animations" component={AnimationPage} />
+				<Route exact path="/education" component={HomePage} />
+				<Route exact path="/news" component={HomePage} />
+				<Route exact path="/about-us" component={HomePage} />
+				<Route exact path="/faq" component={HomePage} />
+				<Route exact path="/contact-us" component={HomePage} />
+				{/*<Route exact path="/animations" component={AnimationPage} />
 				<Route exact path="/canvas" component={CanvasPage} />
-				<Route exact path="/flexbox" component={FlexboxPage} />					
+				<Route exact path="/flexbox" component={FlexboxPage} />	*/}				
 				<Route path="*" component={NotFoundPage} />
 			</Switch>
 		</App>

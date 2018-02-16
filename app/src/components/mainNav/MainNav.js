@@ -1,42 +1,17 @@
 'use strict'
 
-import {Component} 			from 'react'
-import PropTypes 			from 'prop-types'
-import Header             	from './components/header/Header'
-import Footer             	from './components/footer/Footer'
+import { Component }     	from 'react'
+import { Link } 			from 'react-router-dom'
+		
 
-/**
- * Updated react16 life cycles are fully explained here:
- * https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b3e8d
-**/
-
-class App extends Component {
-
+class MainNav extends Component {
 	/**
 	 * Constructor
 	 * @param {object} react properties (Default)
 	 * @return {void}
 	**/
- 	constructor(props) {
+	constructor(props) {
 		super(props)
- 	}
-
-	/**
-	 * Duplicates the {this.props.children} object and adds extra/unique parameters
-	 * It adds user and query params in this instance.
-	 * DEV NOTE: In rare situations, you may want to create a copy of a React element with different props from those of the original element (like this one).
-	 * @return {React.cloneElement} ()
-	**/
-	renderChildren() {
-		if(this.props && this.props.children) {
-			return React.cloneElement(this.props.children, {
-				params: this.props.params,
-				query: this.props.query
-			})
-		} else {
-			return
-		}
-
 	}
 
 	/**
@@ -47,8 +22,8 @@ class App extends Component {
 	 * @return {void}
 	**/
 	componentDidCatch(errorString, errorInfo) {
-		console.error('Error in App.js Component === ', errorString)
-		console.error('App.js error stack === ', errorInfo)
+		console.error('Error in Header.js Component === ', errorString)
+		console.error('Header.js error stack === ', errorInfo)
 	}
 
 	/**
@@ -148,25 +123,24 @@ class App extends Component {
 	**/
 	render() {
 		return (
-			<section>
-				<Header />
-				{this.renderChildren()}
-				<Footer />
-			</section>
+			<nav id="MainNav" className="mainNav" itemScope="itemscope" itemType="http://schema.org/http://schema.org/SiteNavigationElement">
+				<Link to="/">Home</Link>
+				<Link to="/education">Education</Link>
+				<Link to="/news">News</Link>
+				<Link to="/about-us">About Us</Link>
+				<Link to="/faq">FAQ</Link>
+				<Link to="/contact-us">Contact Us</Link>
+			</nav>
 		)
 	}
 }
 
-App.propTypes = {
-	params: PropTypes.object,
-	query: PropTypes.object,
-	children: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object
-	])
-}
 
-export default App
+
+export default MainNav
+
+
+
 
 
 
