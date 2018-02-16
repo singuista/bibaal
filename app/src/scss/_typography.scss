@@ -5,18 +5,6 @@ p {
 .heading {
 	margin-bottom: 0.618em;
 
-	&.-xLarge {
-		font-size: $font-size--xl;
-		font-weight: bold;
-		//line-height: $half-space * 3 / 2;
-	}
-
-	&.-large {
-		font-size: $font-size--lg;
-		font-weight: bold;
-		line-height: $half-space * 3 / 2;
-	}
-
 	&.-large {
 		font-size: $font-size--lg;
 		font-weight: bold;
@@ -26,7 +14,7 @@ p {
 	&.-medium {
 		font-size: $font-size--md;
 		font-weight: normal;
-		//line-height: $half-space;
+		line-height: $half-space;
 	}
 
 	&.-small {
@@ -42,7 +30,7 @@ p {
 }
 
 h1 {
-	@extend .heading.-xLarge;
+	@extend .heading.-large;
 }
 
 h2 {

@@ -1,25 +1,26 @@
-'use strict';
-import { jsdom } from 'jsdom';
+'use strict'
+
+import { JSDOM } 		 from 'jsdom'
 
 //Add Window and Document objects to the vitural browser
-const doc = jsdom('<!doctype html><html><body></body></html>');
-const win = doc.defaultView;
+const dom = new JSDOM('<!doctype html><html><body></body></html>')
 
-global.document = doc;
-global.window = win;
+global.window = dom.window
+global.document = dom.window.document
+
 
 Object.keys(window).forEach((key) => {
-  if (!(key in global)) {
-    global[key] = window[key];
-  }
-});
+	if (!(key in global)) {
+		global[key] = window[key]
+	}
+})
 
 
 //globally define sandbox
 beforeEach(function() {
-	global.sandbox = sinon.sandbox.create();
-});
+	global.sandbox = sinon.sandbox.create()
+})
 
 afterEach(function() {
-	global.sandbox.restore();
-});
+	global.sandbox.restore()
+})

@@ -1,21 +1,23 @@
 // Variables, mixins and functions
 @import 'scss/vars';
-@import 'scss/mixins/breakpoint';
 
-// Fonts
-@import 'scss/fonts';
+// Bond Styleguide files
+@import 'node_modules/bootstrap/scss/bootstrap';
+
 
 // Bases styles, resets and dependencies
-@import 'scss/normalize';
 @import 'scss/base';
-@import 'scss/hover';
+
+// Utility Styles
+
 
 // Typography
 @import 'scss/typography';
 
 // Page Specific Styles
-@import 'pages/animationPage/animationPage';
-@import 'pages/flexboxPage/flexboxPage';
+@import 'examplePages/animationPage/animationPage';
+@import 'examplePages/flexboxPage/flexboxPage';
+//@import 'examplePages/canvasPage/canvasPage';
 
 
 // Global Page Components: Header, footer, navigations, etc...
@@ -23,8 +25,7 @@
 @import 'components/footer/footer';
 
 // App Components
-@import 'components/panel/panel';
-@import 'components/AboutSlider/aboutSlider';
+
 
 
 

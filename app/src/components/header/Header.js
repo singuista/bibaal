@@ -1,12 +1,28 @@
 'use strict';
 
-import React, { Component }     from 'react'
-import PropTypes 				from 'prop-types'
+import { Component }     from 'react'
 
 
 class Header extends Component {
+	/**
+	 * Constructor
+	 * @param {object} react properties (Default)
+	 * @return {void}
+	**/
 	constructor(props) {
 		super(props)
+	}
+
+	/**
+	 * React function for catching errors  
+	 * Error info outputs an error message string and object information
+	 * @param {string} Error message string
+	 * @param {object} ComponentStack which represents the stack trace back to where the error occured
+	 * @return {void}
+	**/
+	componentDidCatch(errorString, errorInfo) {
+		console.error('Error in Header.js Component === ', errorString)
+		console.error('Header.js error stack === ', errorInfo)
 	}
 
 	/**
@@ -35,7 +51,7 @@ class Header extends Component {
 	**/
 	componentWillUnmount() {
 		//Garbage collection
-		//ex: remove timers, clear intervals, remove eventListeners.
+		//ex: remove timers, clear intervals, close opened sockets, remove eventListeners, etc
 		//Anything in memory that should be cleared
 	}
 
@@ -58,9 +74,10 @@ class Header extends Component {
 	 * React Component method gets called before the render method and enables to define if a re-rendering is needed or can be skipped. * This method is never called on initial rendering. A boolean value must be returned.
 	 * @param {object} component props with updated values (nextProps)
 	 * @param {object} component state with updated values (nextState)
+	 * @param {object} 
 	 * @return {boolean}
 	**/
-	shouldComponentUpdate(/*nextProps, nextState*/) {
+	shouldComponentUpdate(/*nextProps, nextState, nextContext*/) {
 		/*console.log('Lifecycle: shouldComponentUpdate')
 		console.log(nextProps)
 		console.log(nextState)*/
@@ -88,9 +105,10 @@ class Header extends Component {
 	 * Similar to the componentDidMount, this method can be used to perform DOM operations after the data has been updated.
 	 * @param {object} component props with updated values (prevProps)
 	 * @param {object} component state with updated values (prevState)
+	 * @param {object} 
 	 * @return {void}
 	**/
-	componentDidUpdate(/*prevProps, prevState*/) {
+	componentDidUpdate(/* prevProps, prevState, prevContext */) {
 		/*console.log('Lifecycle: componentDidUpdate')
 		console.log(prevProps)
 		console.log(prevState)*/
@@ -104,10 +122,10 @@ class Header extends Component {
 	**/
 	render() {
 		return (
-			<header id="header" className="row header" itemScope="itemscope" itemType="http://schema.org/WPHeader">
-				{/*<div className="col-xs-12 text-center">
-					<img itemProp="logo image" src="https://bond.co/assets/www/img/logo.png" />
-				</div>*/}
+			<header id="header" className="header" itemScope="itemscope" itemType="http://schema.org/WPHeader">
+				<div className="text-center">
+					<img itemProp="logo image" src="https://bond.co/images/bond-logo.svg" />
+				</div>
 			</header>
 		);
 	}

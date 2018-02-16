@@ -1,36 +1,37 @@
 'use strict'
 
 //libs
-import React                       							from 'react'
-import {Router, Route, browserHistory, IndexRoute} 			from 'react-router'
+import React                     							from 'react'
+import { Router, Route, Switch} 							from 'react-router-dom'
+import { createBrowserHistory } 							from 'history'
 
-//entry point
+//Entry Point / App Container
 import App                         							from './App'
 
 //pages
 import HomePage                    							from './pages/homePage/HomePage'
-import AnimationPage                    					from './pages/animationPage/AnimationPage'
-import DataVisionPage                    					from './pages/dataVision/DataVisionPage'
+import NotFoundPage											from './pages/notFoundPage/NotFoundPage'
 
-import FlexboxPage                    						from './pages/flexboxPage/FlexboxPage'
-import NotFoundPage											from './pages/NotFoundPage'
+//example pages
+import AnimationPage                    					from './examplePages/animationPage/AnimationPage'
+import CanvasPage                    						from './examplePages/canvasPage/CanvasPage'
+import FlexboxPage                    						from './examplePages/flexboxPage/FlexboxPage'
+
+const history = createBrowserHistory({
+	/* pass a configuration object here if needed */
+})
 
 export default (
-	<Router history={browserHistory}>
-		<Route path="/" component={App}>
-			<IndexRoute component={HomePage} />
-			<Route path="/" component={HomePage} />
-			<Route path="/animations" component={AnimationPage} />
-			<Route path="/data-vision" component={DataVisionPage} />
-			<Route path="/flexbox" component={FlexboxPage} />
-			
-			<Route path="*" component={NotFoundPage} />
-		</Route>
+	<Router history={history}>
+		<App>
+			<Switch>
+				{/*<Route exact path="/" component={HomePage} />*/}
+				<Route exact path="/" component={HomePage} />
+				<Route exact path="/animations" component={AnimationPage} />
+				<Route exact path="/canvas" component={CanvasPage} />
+				<Route exact path="/flexbox" component={FlexboxPage} />					
+				<Route path="*" component={NotFoundPage} />
+			</Switch>
+		</App>
 	</Router>
 )
-
-
-
-
-
-

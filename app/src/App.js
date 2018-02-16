@@ -1,26 +1,16 @@
 'use strict'
 
-import React 				from 'react'
+import {Component} 			from 'react'
 import PropTypes 			from 'prop-types'
 import Header             	from './components/header/Header'
 import Footer             	from './components/footer/Footer'
 
-
-
 /**
- * Extra React PropTypes and expose them
- * Added properties and their dataTypes
+ * Updated react16 life cycles are fully explained here:
+ * https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b3e8d
 **/
-const propTypes = {
-	params: PropTypes.object,
-	query: PropTypes.object,
-	children: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.object
-	])
-}
 
-class App extends React.Component {
+class App extends Component {
 
 	/**
 	 * Constructor
@@ -50,6 +40,18 @@ class App extends React.Component {
 	}
 
 	/**
+	 * React function for catching errors  
+	 * Error info outputs an error message string and object information
+	 * @param {string} Error message string
+	 * @param {object} ComponentStack which represents the stack trace back to where the error occured
+	 * @return {void}
+	**/
+	componentDidCatch(errorString, errorInfo) {
+		console.error('Error in App.js Component === ', errorString)
+		console.error('App.js error stack === ', errorInfo)
+	}
+
+	/**
 	 * React Component method that is called before the render method is executed. 
 	 * It is important to note that setting the state in this phase will not trigger a re-rendering.
 	 * @return {void}
@@ -75,7 +77,7 @@ class App extends React.Component {
 	**/
 	componentWillUnmount() {
 		//Garbage collection
-		//ex: remove timers, clear intervals, remove eventListeners.
+		//ex: remove timers, clear intervals, close opened sockets, remove eventListeners, etc
 		//Anything in memory that should be cleared
 	}
 
@@ -98,9 +100,10 @@ class App extends React.Component {
 	 * React Component method gets called before the render method and enables to define if a re-rendering is needed or can be skipped. * This method is never called on initial rendering. A boolean value must be returned.
 	 * @param {object} component props with updated values (nextProps)
 	 * @param {object} component state with updated values (nextState)
+	 * @param {object} 
 	 * @return {boolean}
 	**/
-	shouldComponentUpdate(/*nextProps, nextState*/) {
+	shouldComponentUpdate(/*nextProps, nextState, nextContext*/) {
 		/*console.log('Lifecycle: shouldComponentUpdate')
 		console.log(nextProps)
 		console.log(nextState)*/
@@ -128,9 +131,10 @@ class App extends React.Component {
 	 * Similar to the componentDidMount, this method can be used to perform DOM operations after the data has been updated.
 	 * @param {object} component props with updated values (prevProps)
 	 * @param {object} component state with updated values (prevState)
+	 * @param {object} 
 	 * @return {void}
 	**/
-	componentDidUpdate(/*prevProps, prevState*/) {
+	componentDidUpdate(/* prevProps, prevState, prevContext */) {
 		/*console.log('Lifecycle: componentDidUpdate')
 		console.log(prevProps)
 		console.log(prevState)*/
@@ -144,16 +148,23 @@ class App extends React.Component {
 	**/
 	render() {
 		return (
-			<main className="container">
+			<section>
 				<Header />
 				{this.renderChildren()}
 				<Footer />
-			</main>
+			</section>
 		)
 	}
 }
 
-App.propTypes = propTypes
+App.propTypes = {
+	params: PropTypes.object,
+	query: PropTypes.object,
+	children: PropTypes.oneOfType([
+		PropTypes.array,
+		PropTypes.object
+	])
+}
 
 export default App
 

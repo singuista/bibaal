@@ -1,14 +1,16 @@
 'use strict';
 
-import gulp    from 'gulp';
-import {jsdom} from 'jsdom';
-import {argv}  from 'yargs';
-import gjc     from 'gulp-jsx-coverage';
-import config  from '../config';
+
+import gulp         from 'gulp';
+import jsdom        from 'jsdom';
+import {argv}       from 'yargs';
+import gjc          from 'gulp-jsx-coverage';
+import config       from '../config';
 
 gulp.task('test', () => {
 
-  let files;
+  let files
+  const { JSDOM } = jsdom
 
   // Allow specification of a single test file
   if ( argv.f || argv.file ) {
@@ -27,8 +29,10 @@ gulp.task('test', () => {
 
   // Ensure that all window/DOM related properties
   // are available to all tests
-  global.document = jsdom('<!DOCTYPE html><html><body></body></html>');
-  global.window = document.parentWindow;
+  //global.document = new JSDOM('<!DOCTYPE html><html><body></body></html>');
+  const dom = new JSDOM('<!doctype html><html><body></body></html>')
+  global.window = dom.window
+  global.document = dom.window.document
   global.location = { href: '' };
   global.navigator = {};
   global.navigator.userAgent = 'jsdom';
@@ -53,7 +57,9 @@ gulp.task('test', () => {
         exclude: /node_modules/
       }
     },
-
+    babel: {
+      sourceMap: 'both'
+    },
     coverage: {
       reporters: ['text-summary', 'html'],
       directory: '__coverage__/'
@@ -61,10 +67,6 @@ gulp.task('test', () => {
 
     mocha: {
       reporter: 'spec'
-    },
-
-    babel: {
-      sourceMap: 'both'
     },
 
     cleanup: () => {

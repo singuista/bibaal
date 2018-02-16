@@ -1,11 +1,23 @@
-'use strict';
+'use strict'
 
-import React, { Component }     from 'react';
+import { Component }     from 'react'
 
 
 class Footer extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
+	}
+
+	/**
+	 * React function for catching errors  
+	 * Error info outputs an error message string and object information
+	 * @param {string} Error message string
+	 * @param {object} ComponentStack which represents the stack trace back to where the error occured
+	 * @return {void}
+	**/
+	componentDidCatch(errorString, errorInfo) {
+		console.error('Error in Footer.js Component === ', errorString)
+		console.error('Footer.js error stack === ', errorInfo)
 	}
 
 	/**
@@ -34,7 +46,7 @@ class Footer extends Component {
 	**/
 	componentWillUnmount() {
 		//Garbage collection
-		//ex: remove timers, clear intervals, remove eventListeners.
+		//ex: remove timers, clear intervals, close opened sockets, remove eventListeners, etc
 		//Anything in memory that should be cleared
 	}
 
@@ -57,9 +69,10 @@ class Footer extends Component {
 	 * React Component method gets called before the render method and enables to define if a re-rendering is needed or can be skipped. * This method is never called on initial rendering. A boolean value must be returned.
 	 * @param {object} component props with updated values (nextProps)
 	 * @param {object} component state with updated values (nextState)
+	 * @param {object} 
 	 * @return {boolean}
 	**/
-	shouldComponentUpdate(/*nextProps, nextState*/) {
+	shouldComponentUpdate(/*nextProps, nextState, nextContext*/) {
 		/*console.log('Lifecycle: shouldComponentUpdate')
 		console.log(nextProps)
 		console.log(nextState)*/
@@ -87,9 +100,10 @@ class Footer extends Component {
 	 * Similar to the componentDidMount, this method can be used to perform DOM operations after the data has been updated.
 	 * @param {object} component props with updated values (prevProps)
 	 * @param {object} component state with updated values (prevState)
+	 * @param {object} 
 	 * @return {void}
 	**/
-	componentDidUpdate(/*prevProps, prevState*/) {
+	componentDidUpdate(/* prevProps, prevState, prevContext */) {
 		/*console.log('Lifecycle: componentDidUpdate')
 		console.log(prevProps)
 		console.log(prevState)*/
@@ -103,11 +117,9 @@ class Footer extends Component {
 	**/
 	render() {
 	    return (
-	        <footer id="footer" itemScope="itemscope" itemType="http://schema.org/WPFooter">
-	        	<div itemProp="text">Main Site Footer</div>
-	        </footer>
-		);
+	    	<section>Footer Component</section>
+		)
 	}
 }
 
-export default Footer;
+export default Footer

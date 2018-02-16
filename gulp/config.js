@@ -1,7 +1,6 @@
 'use strict';
 
 const config = {
-
 	browserPort: 3000,
 	UIPort: 3001,
 
@@ -14,12 +13,11 @@ const config = {
 	},
 
 	images: {
-		src: './app/images/**/*.{jpeg,jpg,png,gif}',
+		src: './app/images/**/*.{jpeg,jpg,png,gif,svg,webp}',
 		dest: './build/images/'
 	},
 
 	styles: {
-		//src: ['./app/src/**/*.scss', '../node_modules/style-guide/scss/**/*.scss'],
 		src: ['./app/src/**/*.scss'],
 		dest: './build/css/'
 	},
@@ -33,11 +31,14 @@ const config = {
 
 	assetExtensions: [
 		'js',
+		'jsx',
 		'css',
 		'png',
 		'jpe?g',
 		'gif',
 		'svg',
+		'webp',
+		'pdf',
 		'eot',
 		'otf',
 		'ttc',
