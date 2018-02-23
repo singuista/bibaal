@@ -1,9 +1,9 @@
 'use strict'
 
-import {Component} 			from 'react'
-import PropTypes 			from 'prop-types'
-import Header             	from './components/header/Header'
-import Footer             	from './components/footer/Footer'
+import {Component, Fragment} 	from 'react'
+import PropTypes 				from 'prop-types'
+import Header             		from './components/header/Header'
+import Footer             		from './components/footer/Footer'
 
 /**
  * Updated react16 life cycles are fully explained here:
@@ -148,11 +148,11 @@ class App extends Component {
 	**/
 	render() {
 		return (
-			<section>
+			<Fragment>
 				<Header />
 				{this.renderChildren()}
 				<Footer />
-			</section>
+			</Fragment>
 		)
 	}
 }

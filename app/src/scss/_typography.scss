@@ -13,7 +13,7 @@ p {
 
 	&.-medium {
 		font-size: $font-size--md;
-		font-weight: normal;
+		font-weight: bold;
 		line-height: $half-space;
 	}
 
@@ -34,6 +34,7 @@ h1 {
 }
 
 h2 {
+	margin-bottom: 20px;
 	@extend .heading.-medium;
 }
 

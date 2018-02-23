@@ -126,7 +126,13 @@ class HomePage extends Component {
 	render() {
 		return (
 			<DocumentTitle title="Home">
-				<Fragment>Homage Page</Fragment>
+				<Fragment>
+					{/*<Banner></Banner>*/}
+					<section className="page homePageSection">
+						Home page
+					</section>
+
+				</Fragment>
 			</DocumentTitle>
 		)
 	}

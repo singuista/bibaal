@@ -11,6 +11,9 @@ import App                         							from './App'
 //pages
 import NotFoundPage											from './pages/notFoundPage/NotFoundPage'
 import HomePage                    							from './pages/homePage/HomePage'
+import AboutPage                    						from './pages/aboutPage/AboutPage'
+import FaqPage	                    						from './pages/faqPage/FaqPage'
+import ContactPage	                    					from './pages/contactPage/ContactPage'
 
 //example pages
 /*import AnimationPage                    					from './examplePages/animationPage/AnimationPage'
@@ -28,10 +31,10 @@ export default (
 				{/*<Route exact path="/" component={HomePage} />*/}
 				<Route exact path="/" component={HomePage} />
 				<Route exact path="/education" component={HomePage} />
-				<Route exact path="/news" component={HomePage} />
-				<Route exact path="/about-us" component={HomePage} />
-				<Route exact path="/faq" component={HomePage} />
-				<Route exact path="/contact-us" component={HomePage} />
+				{/*<Route exact path="/news" component={HomePage} />*/}
+				<Route exact path="/about-us" component={AboutPage} />
+				<Route exact path="/faq" component={FaqPage} />
+				<Route exact path="/contact-us" component={ContactPage} />
 				{/*<Route exact path="/animations" component={AnimationPage} />
 				<Route exact path="/canvas" component={CanvasPage} />
 				<Route exact path="/flexbox" component={FlexboxPage} />	*/}				

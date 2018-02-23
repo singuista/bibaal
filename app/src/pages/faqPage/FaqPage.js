@@ -1,10 +1,12 @@
 'use strict'
 
-import { Component }     	from 'react'
-import { Link } 			from 'react-router-dom'
-		
+import {Fragment, Component}    				from 'react'
+//import {Link}        							from 'react-router'
+import DocumentTitle 							from 'react-document-title'
 
-class MainNav extends Component {
+const propTypes = {}
+
+class FaqPage extends Component {
 	/**
 	 * Constructor
 	 * @param {object} react properties (Default)
@@ -22,8 +24,8 @@ class MainNav extends Component {
 	 * @return {void}
 	**/
 	componentDidCatch(errorString, errorInfo) {
-		console.error('Error in Header.js Component === ', errorString)
-		console.error('Header.js error stack === ', errorInfo)
+		console.error('Error in FaqPage.js Page === ', errorString)
+		console.error('FaqPage.js error stack === ', errorInfo)
 	}
 
 	/**
@@ -123,23 +125,71 @@ class MainNav extends Component {
 	**/
 	render() {
 		return (
-			<nav id="MainNav" className="mainNav" itemScope="itemscope" itemType="http://schema.org/http://schema.org/SiteNavigationElement">
-				<Link to="/">Home</Link>
-				<Link to="/education">Education</Link>
-				{/*<Link to="/news">News</Link>*/}
-				<Link to="/about-us">About Us</Link>
-				<Link to="/faq">FAQ</Link>
-				<Link to="/contact-us">Contact Us</Link>
-			</nav>
+			<DocumentTitle title="FAQ">
+				<Fragment>
+					{/*<Banner><h1>Who We Are...</h1></Banner>*/}
+					<section className="page faqPageSection">
+
+
+						{/*<h2></h2>
+						<p></p>
+						
+						
+						<ul><li></li></ul>*/}
+						
+						<h2>About BIBAAL</h2>
+						<p>As a solutions provider, we offer investors a solution for those seeking a great addition to their portfolio.
+						Trade Management Program</p>
+
+						<p>BIBAAL is offering participation in a Private Trade Management Program. BIBAAL’s efficient and highly profitable trade management program offers opportunities with exponential growth opportunity.</p>
+
+						<h2>Program</h2>
+						<p>BIBAAL is offering participation in its TRP, which is, a 4 tier program with quarterly and yearly investment subscriptions.</p>
+
+						<h2>Why You Should Choose BIBAAL?</h2>
+						<ul>
+							<li>Our trading solution is composed of our internally developed trading system.</li>
+							<li>Our program offers private and business investors a healthy residual revenue stream.</li>
+							<li>Affordable investment tiers.</li>
+						</ul>
+
+						<h2>Trading Solution Investment Profiles</h2>
+
+						<h3>How long are the participation periods?</h3>
+						<p>The participation programs are from 3 months, 6 months and 12 months.</p>
+
+						<h2>How Do I Fund My Investment?</h2>
+
+						<h3>You can pay by:</h3>
+						<ul>
+							<li>Bank Wire Transfer</li>
+							<li>Mobile Payment Services :  Airtel, Tigo, MTN, & Vodaphone</li>
+							<li>Credit/Debit Card</li>
+							<li>PayPal Payment Service</li>
+						</ul>
+
+						<h2>When does my participation end?</h2>
+						<p>Whenever you choose to terminate your participation.</p>
+
+						<h2>Will my account be rolled over every month?</h2>
+						<p>Yes.  If you do not choose to terminate your participation, your monies on account are rolled over into the next trading period.</p>
+
+						<h2>How Do I receive information on my account?</h2>
+						<p>Yes.  You will receive monthly statements that detail your earnings as an investor.</p>
+
+						<h2>How Do I become a Participant?</h2>
+						<p>You can request information by completing the following information:</p>
+						
+					</section>
+				</Fragment>
+			</DocumentTitle>
 		)
 	}
 }
 
+FaqPage.propTypes = propTypes
 
-
-export default MainNav
-
-
+export default FaqPage
 
 
 

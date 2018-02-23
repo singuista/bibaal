@@ -125,7 +125,7 @@ class Header extends Component {
 		return (
 			<header id="header" className="header" itemScope="itemscope" itemType="http://schema.org/WPHeader">
 				<div className="header__logoContainer ">
-					<img itemprop='logo' src="/images/bibaal-logo.jpg" />
+					<img itemProp='logo' src="/images/bibaal-logo.jpg" />
 				</div>
 				<div className="header__navContainer">
 					<MainNav />

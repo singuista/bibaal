@@ -1,10 +1,12 @@
 'use strict'
 
-import { Component }     	from 'react'
-import { Link } 			from 'react-router-dom'
-		
+import {Fragment, Component}    				from 'react'
+//import {Link}        							from 'react-router'
+import DocumentTitle 							from 'react-document-title'
 
-class MainNav extends Component {
+const propTypes = {}
+
+class ContactPage extends Component {
 	/**
 	 * Constructor
 	 * @param {object} react properties (Default)
@@ -22,8 +24,8 @@ class MainNav extends Component {
 	 * @return {void}
 	**/
 	componentDidCatch(errorString, errorInfo) {
-		console.error('Error in Header.js Component === ', errorString)
-		console.error('Header.js error stack === ', errorInfo)
+		console.error('Error in ContactPage.js Page === ', errorString)
+		console.error('ContactPage.js error stack === ', errorInfo)
 	}
 
 	/**
@@ -123,23 +125,32 @@ class MainNav extends Component {
 	**/
 	render() {
 		return (
-			<nav id="MainNav" className="mainNav" itemScope="itemscope" itemType="http://schema.org/http://schema.org/SiteNavigationElement">
-				<Link to="/">Home</Link>
-				<Link to="/education">Education</Link>
-				{/*<Link to="/news">News</Link>*/}
-				<Link to="/about-us">About Us</Link>
-				<Link to="/faq">FAQ</Link>
-				<Link to="/contact-us">Contact Us</Link>
-			</nav>
+			<DocumentTitle title="Contact Us">
+				<Fragment>
+					{/*<Banner><h1>Who We Are...</h1></Banner>*/}
+					<section className="page contactPageSection">
+						<h2>You can request information by completing the following information:</h2>
+
+						<form>
+							<input type="text" placeholder="First Name" />
+							<input type="text" placeholder="Last Name" />
+							<input type="text" placeholder="Address" />
+							<input type="text" placeholder="City" />
+							<input type="text" placeholder="Country" />
+							<input type="text" placeholder="Telephone" />
+							<input type="text" placeholder="Language" />
+						</form>
+
+					</section>
+				</Fragment>
+			</DocumentTitle>
 		)
 	}
 }
 
+ContactPage.propTypes = propTypes
 
-
-export default MainNav
-
-
+export default ContactPage
 
 
 
