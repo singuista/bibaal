@@ -14,6 +14,7 @@ import HomePage                    							from './pages/homePage/HomePage'
 import AboutPage                    						from './pages/aboutPage/AboutPage'
 import FaqPage	                    						from './pages/faqPage/FaqPage'
 import ContactPage	                    					from './pages/contactPage/ContactPage'
+import EducationPage	                    				from './pages/educationPage/EducationPage'
 
 //example pages
 /*import AnimationPage                    					from './examplePages/animationPage/AnimationPage'
@@ -30,7 +31,7 @@ export default (
 			<Switch>
 				{/*<Route exact path="/" component={HomePage} />*/}
 				<Route exact path="/" component={HomePage} />
-				<Route exact path="/education" component={HomePage} />
+				<Route exact path="/education" component={EducationPage} />
 				{/*<Route exact path="/news" component={HomePage} />*/}
 				<Route exact path="/about-us" component={AboutPage} />
 				<Route exact path="/faq" component={FaqPage} />
