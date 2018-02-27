@@ -3,6 +3,7 @@
 import {Fragment, Component}    				from 'react'
 //import {Link}        							from 'react-router'
 import DocumentTitle 							from 'react-document-title'
+import Banner 									from '../../components/banner/Banner'
 
 const propTypes = {}
 
@@ -127,16 +128,12 @@ class FaqPage extends Component {
 		return (
 			<DocumentTitle title="FAQ">
 				<Fragment>
-					{/*<Banner><h1>Who We Are...</h1></Banner>*/}
+					<Banner>
+						<h1>Frequently Asked Questions</h1>
+					</Banner>
+
+
 					<section className="page faqPageSection">
-
-
-						{/*<h2></h2>
-						<p></p>
-						
-						
-						<ul><li></li></ul>*/}
-						
 						<h2>About BIBAAL</h2>
 						<p>As a solutions provider, we offer investors a solution for those seeking a great addition to their portfolio.
 						Trade Management Program</p>

@@ -16,6 +16,32 @@ html {
 	padding: 30px 80px;
 }
 
+form {
+	max-width: 400px;
+}
+
+input {
+	width: 100%;
+	margin-bottom: 12px;
+	padding: 7px 18px;
+	font-size: 18px;
+	display: block;
+}
+.formSubmit {
+	width: 100%;
+	padding: 10px; 
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	background-color: #b1802c;
+
+	&:hover {
+		background-color: #1c4577;
+	}
+}
+
 
 
 

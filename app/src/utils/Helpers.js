@@ -99,6 +99,23 @@ const Helpers = {
 		})
 
 		return str
+	},
+	/**
+	 * Turns post object into a string
+	 * @param {object} 
+	 * @return Void
+	**/
+	serializeObj(obj) {
+		let strBody = ''
+
+		for (var key in obj) {
+		    if (strBody != '') {
+		        strBody += '&';
+		    }
+		    strBody += key + '=' + encodeURIComponent(obj[key]);
+		}
+
+		return strBody
 	}
 }
 

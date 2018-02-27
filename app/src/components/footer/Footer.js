@@ -9,6 +9,17 @@ class Footer extends Component {
 	}
 
 	/**
+	 * Output the year relative to the clients computer
+	 * @return {date} year
+	**/
+	outputYear() {
+		const date = new Date()
+		const year = date.getFullYear()
+
+		return year
+	}
+
+	/**
 	 * React function for catching errors  
 	 * Error info outputs an error message string and object information
 	 * @param {string} Error message string
@@ -117,7 +128,7 @@ class Footer extends Component {
 	**/
 	render() {
 	    return (
-	    	<footer>copyright &copy; by Bibaal. All Rights Reserved.</footer>
+	    	<footer>copyright &copy; {this.outputYear()} by Bibaal. All Rights Reserved.</footer>
 		)
 	}
 }

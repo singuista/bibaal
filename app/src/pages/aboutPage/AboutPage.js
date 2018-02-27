@@ -3,6 +3,7 @@
 import {Fragment, Component}    				from 'react'
 //import {Link}        							from 'react-router'
 import DocumentTitle 							from 'react-document-title'
+import Banner 									from '../../components/banner/Banner'
 
 const propTypes = {}
 
@@ -24,8 +25,8 @@ class AboutPage extends Component {
 	 * @return {void}
 	**/
 	componentDidCatch(errorString, errorInfo) {
-		console.error('Error in HomePage.js Page === ', errorString)
-		console.error('HomePage.js error stack === ', errorInfo)
+		console.error('Error in AboutPage.js Page === ', errorString)
+		console.error('AboutPage.js error stack === ', errorInfo)
 	}
 
 	/**
@@ -127,7 +128,10 @@ class AboutPage extends Component {
 		return (
 			<DocumentTitle title="About Us">
 				<Fragment>
-					{/*<Banner><h1>About Us</h1></Banner>*/}
+					<Banner>
+						<h1>About Us</h1>
+					</Banner>
+					
 					<section className="page aboutPageSection">
 
 						<h2>Welcome to BIBAAL</h2>

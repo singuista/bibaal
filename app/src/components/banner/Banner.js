@@ -1,13 +1,10 @@
 'use strict'
 
-import {Fragment, Component}    				from 'react'
-//import {Link}        							from 'react-router'
-import DocumentTitle 							from 'react-document-title'
-import Banner 									from '../../components/banner/Banner'
+import { Component }     			from 'react'
+import PropTypes 					from 'prop-types'
 
-const propTypes = {}
 
-class EducationPage extends Component {
+class Banner extends Component {
 	/**
 	 * Constructor
 	 * @param {object} react properties (Default)
@@ -25,8 +22,8 @@ class EducationPage extends Component {
 	 * @return {void}
 	**/
 	componentDidCatch(errorString, errorInfo) {
-		console.error('Error in EducationPage.js Page === ', errorString)
-		console.error('EducationPage.js error stack === ', errorInfo)
+		console.error('Error in Banner.js Component === ', errorString)
+		console.error('Banner.js error stack === ', errorInfo)
 	}
 
 	/**
@@ -126,43 +123,26 @@ class EducationPage extends Component {
 	**/
 	render() {
 		return (
-			<DocumentTitle title="Education">
-				<Fragment>
-					<Banner>
-						<h1>Education</h1>
-					</Banner>
-
-					<section className="page educationPageSection">
-						<p>BIBAAL offers several layers of Training Programs.</p>
-
-						<ul>
-							<li>Personal & Private</li>
-							<li>Group Training</li>
-							<li>Corporate & Institutional Seminars</li>
-						</ul>
-
-						<p>Want to learn how to trade on the Forex market? Sign up for our upcoming training courses.</p>
-						<p>Contact Info:</p>
-
-						<form>
-							<input type="text" placeholder="Full Name" name="fName" />
-							<input type="text" placeholder="Telephone" name="telephone" />
-							<input type="text" placeholder="Email" name="email" />
-						</form>
-
-						<p>List General Class Dates, Time & Locations (for next 2 months)</p>
-						<p>Need dates</p>
-
-					</section>
-				</Fragment>
-			</DocumentTitle>
+			<section id="Banner" className="banner">
+				{this.props.children}
+			</section>
 		)
 	}
 }
 
-EducationPage.propTypes = propTypes
+Banner.propTypes = {
+	children: PropTypes.object
+}
 
-export default EducationPage
+export default Banner
+
+
+
+
+
+
+
+
 
 
 

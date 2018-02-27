@@ -3,8 +3,20 @@
 import {Fragment, Component}    				from 'react'
 //import {Link}        							from 'react-router'
 import DocumentTitle 							from 'react-document-title'
+import axios 									from 'axios'
+import Banner 									from '../../components/banner/Banner'
+import Helpers 									from '../../utils/Helpers/'
+
 
 const propTypes = {}
+let root
+
+const instance = axios.create({
+	baseURL: 'http://bibaal.com',
+	headers: {
+		'Contant-Type': 'text/plain; charset=utf-8'
+	}
+})
 
 class ContactPage extends Component {
 	/**
@@ -14,6 +26,41 @@ class ContactPage extends Component {
 	**/
 	constructor(props) {
 		super(props)
+
+		root = this
+
+		this.state = {
+			emailSent: false,
+		}
+	}
+
+	sendForm(event) {
+		event.preventDefault()
+
+		const fname 		= root.emailForm.querySelector('input[name="fName"]').value.length > 0 ? root.emailForm.querySelector('input[name="fName"]').value : false
+		const lName 		= root.emailForm.querySelector('input[name="lName"]').value.length > 0 ? root.emailForm.querySelector('input[name="lName"]').value : false
+		const fullName 		= `${fname ? fname : ''} ${lName ? lName : ''} `
+		const address 		= root.emailForm.querySelector('input[name="address"]').value.length > 0 ? `${root.emailForm.querySelector('input[name="address"]').value} ` : ''
+		const city 			= root.emailForm.querySelector('input[name="city"]').value.length > 0 ? `${root.emailForm.querySelector('input[name="city"]').value} ` : ''
+		const country 		= root.emailForm.querySelector('input[name="country"]').value.length > 0 ? `${root.emailForm.querySelector('input[name="country"]').value} ` : ''
+		const telephone 	= root.emailForm.querySelector('input[name="telephone"]').value.length > 0 ? `${root.emailForm.querySelector('input[name="telephone"]').value }` : ''
+		const email 		= root.emailForm.querySelector('input[name="email"]').value.length > 0 ? `${root.emailForm.querySelector('input[name="email"]').value}` : ''
+		const language 		= root.emailForm.querySelector('input[name="language"]').value.length > 0 ? `${root.emailForm.querySelector('input[name="language"]').value} ` : ''
+		const message 		= `${fullName} (${email}) is making an inquiery with the following details :\n${address}\n${city}\n${country}\n${telephone}\n${language}`
+
+		const body = {
+			name: fullName,		
+			email: email,
+			message: message
+		}
+
+		const postStr = Helpers.serializeObj(body)
+
+		instance.post('/email.php', postStr).then(res => {
+			root.setState({emailSent: true})
+		}).catch(err => {
+			console.error('error message === ', err)
+		}) 
 	}
 
 	/**
@@ -127,19 +174,27 @@ class ContactPage extends Component {
 		return (
 			<DocumentTitle title="Contact Us">
 				<Fragment>
-					{/*<Banner><h1>Who We Are...</h1></Banner>*/}
+					<Banner>
+						<h1>Contact Us</h1>
+					</Banner>
+
 					<section className="page contactPageSection">
 						<h2>You can request information by completing the following information:</h2>
 
-						<form>
-							<input type="text" placeholder="First Name" />
-							<input type="text" placeholder="Last Name" />
-							<input type="text" placeholder="Address" />
-							<input type="text" placeholder="City" />
-							<input type="text" placeholder="Country" />
-							<input type="text" placeholder="Telephone" />
-							<input type="text" placeholder="Language" />
+						{!this.state.emailSent ?  <form ref={emailForm => {root.emailForm = emailForm} }>
+							<input type="text" placeholder="First Name" name="fName" />
+							<input type="text" placeholder="Last Name" name="lName" />
+							<input type="text" placeholder="Address" name="address" />
+							<input type="text" placeholder="City" name="city" />
+							<input type="text" placeholder="Country" name="country" />
+							<input type="text" placeholder="Telephone" name="telephone" />
+							<input type="text" placeholder="Email" name="email" />
+							<input type="text" placeholder="Language" name="language" />
+
+							<button onClick={this.sendForm} className="formSubmit">Submit</button>
 						</form>
+
+						:  <div>Thank you. A sale rep will get back to you shortly</div>}
 
 					</section>
 				</Fragment>
