@@ -141,17 +141,19 @@ class EducationPage extends Component {
 							<li>Corporate & Institutional Seminars</li>
 						</ul>
 
-						<p>Want to learn how to trade on the Forex market? Sign up for our upcoming training courses.</p>
+						{/*<p>Want to learn how to trade on the Forex market? Sign up for our upcoming training courses.</p>
 						<p>Contact Info:</p>
 
 						<form>
 							<input type="text" placeholder="Full Name" name="fName" />
 							<input type="text" placeholder="Telephone" name="telephone" />
 							<input type="text" placeholder="Email" name="email" />
+
+							<button onClick={this.sendForm} className="formSubmit">Submit</button>
 						</form>
 
 						<p>List General Class Dates, Time & Locations (for next 2 months)</p>
-						<p>Need dates</p>
+						<p>Need dates</p>*/}
 
 					</section>
 				</Fragment>
