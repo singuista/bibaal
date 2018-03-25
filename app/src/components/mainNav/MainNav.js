@@ -1,7 +1,9 @@
 'use strict'
 
-import { Component }     	from 'react'
-import { Link } 			from 'react-router-dom'
+import {Component, Fragment} 	from 'react'
+import { Link } 				from 'react-router-dom'
+
+let root
 		
 
 class MainNav extends Component {
@@ -12,6 +14,13 @@ class MainNav extends Component {
 	**/
 	constructor(props) {
 		super(props)
+
+	 	root = this
+	}
+
+	toggleNav() {
+		console.log('Arguments === ', arguments)
+		root.mainNav.classList.toggle('mobileActive')
 	}
 
 	/**
@@ -22,8 +31,8 @@ class MainNav extends Component {
 	 * @return {void}
 	**/
 	componentDidCatch(errorString, errorInfo) {
-		console.error('Error in Header.js Component === ', errorString)
-		console.error('Header.js error stack === ', errorInfo)
+		console.error('Error in MainNav.js Component === ', errorString)
+		console.error('MainNav.js error stack === ', errorInfo)
 	}
 
 	/**
@@ -123,19 +132,21 @@ class MainNav extends Component {
 	**/
 	render() {
 		return (
-			<nav id="MainNav" className="mainNav" itemScope="itemscope" itemType="http://schema.org/http://schema.org/SiteNavigationElement">
-				<Link to="/">Home</Link>
-				<Link to="/education">Education</Link>
-				{/*<Link to="/news">News</Link>*/}
-				<Link to="/about-us">About Us</Link>
-				<Link to="/faq">FAQ</Link>
-				<Link to="/contact-us">Contact Us</Link>
-			</nav>
+			<Fragment>
+				<i className="hamburger" onClick={root.toggleNav}></i>
+
+				<nav ref={mainNav => {this.mainNav = mainNav}} id="MainNav" className="mainNav" itemScope="itemscope" itemType="http://schema.org/http://schema.org/SiteNavigationElement">
+					<Link to="/" onClick={root.toggleNav}>Home</Link>
+					<Link to="/education" onClick={root.toggleNav}>Education</Link>
+					{/*<Link to="/news">News</Link>*/}
+					<Link to="/about-us" onClick={root.toggleNav}>About Us</Link>
+					<Link to="/faq" onClick={root.toggleNav}>FAQ</Link>
+					<Link to="/contact-us" onClick={root.toggleNav}>Contact Us</Link>
+				</nav>
+			</Fragment>
 		)
 	}
 }
-
-
 
 export default MainNav
 

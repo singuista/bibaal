@@ -137,23 +137,8 @@ class HomePage extends Component {
 
 						<p>As a FOREX solutions provider, we can offer a hosting solution to those seeking to own their own platform but cannot afford the cost of ownership or is looking for a great addition to their portfolio but do not wish to run such a service.</p>
 
-						<h3>Target Hosting/Serviced Clients</h3>
-						<ul>
-							<li>Banks</li>
-							<li>Micro Finance Firms</li>
-							<li>Forex Traders</li>
-							<li>Funds</li>
-						</ul>
-
 						<h2>Bullion Trade Management</h2>
 						<p>BTM is a strong internal application for any firm and an incredible revenue source. This Platform application can be made into a priceless customer offered trade application for customers.</p>
-
-						<p>As a holder of a hard asset, having a Gold Bullion account is unique and original in Ghana as a FOREX Platform. By having a bullion trade account with a large bullion bank in Accra, we can be under contract for 10% Monthly ROI. This option delivers a great annual return for BIBAAL, as illustrated in the BTM sections of the following plans, and eventually to our customer base.</p>
-
-						<p>An Investor or potential buyer looking into our holdings portfolio will be impressed and our business made more attractive by the asset and its hedging and trading ability as outlined in the respective sections of this prospectus.</p>
-
-						<h2>Affiliate Program</h2>
-						<p>BIBAAL has a four-tier affiliate revenue payout system. The tiers can be obtained by accumulated monies on account of their clients or by introducing investors at the various platform levels.</p>
 					</section>
 
 				</Fragment>

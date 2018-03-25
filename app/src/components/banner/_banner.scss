@@ -1,11 +1,15 @@
 #Banner {
 	height: 200px;
-	padding: 0 $pagePaddingH;
+	padding: 0 $pagePaddingH-mobile;
 	font-size: em(30px);
 	color: white;
 	display: flex;
 	align-items: center;
 	background-color: #23416d;
+
+	@include desktop-up {
+		padding: 0 $pagePaddingH;
+	}
 }
 
 .banner {

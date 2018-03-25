@@ -1,6 +1,7 @@
 @import 'mixins/pxToEm';
 @import 'mixins/pxToRem';
 @import 'mixins/fontSize';
+@import 'mixins/breakpoints';
 
 * {
 	box-sizing: border-box;
@@ -13,7 +14,11 @@ html {
 }
 
 .page {
-	padding: 30px 80px;
+	padding: 30px $pagePaddingH-mobile;
+
+	@include desktop-up {
+		padding: 30px $pagePaddingH;
+	}
 }
 
 form {

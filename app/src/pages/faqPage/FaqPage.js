@@ -135,13 +135,12 @@ class FaqPage extends Component {
 
 					<section className="page faqPageSection">
 						<h2>About BIBAAL</h2>
-						<p>As a solutions provider, we offer investors a solution for those seeking a great addition to their portfolio.
-						Trade Management Program</p>
+						<p>As a solutions provider, we offer investors a solution for those seeking a great addition to their portfolio.</p>
 
 						<p>BIBAAL is offering participation in a Private Trade Management Program. BIBAAL’s efficient and highly profitable trade management program offers opportunities with exponential growth opportunity.</p>
 
 						<h2>Program</h2>
-						<p>BIBAAL is offering participation in its TRP, which is, a 4 tier program with quarterly and yearly investment subscriptions.</p>
+						<p>BIBAAL is offering participation in its TRP, which is, a 4 tier program with quarterly and yearly investment partnerships.</p>
 
 						<h2>Why You Should Choose BIBAAL?</h2>
 						<ul>
@@ -160,7 +159,7 @@ class FaqPage extends Component {
 						<h3>You can pay by:</h3>
 						<ul>
 							<li>Bank Wire Transfer</li>
-							<li>Mobile Payment Services :  Airtel, Tigo, MTN, & Vodaphone</li>
+							<li>Mobile Payment Services: Airtel, Tigo, MTN, & Vodaphone</li>
 							<li>Credit/Debit Card</li>
 							<li>PayPal Payment Service</li>
 						</ul>
@@ -169,10 +168,10 @@ class FaqPage extends Component {
 						<p>Whenever you choose to terminate your participation.</p>
 
 						<h2>Will my account be rolled over every month?</h2>
-						<p>Yes.  If you do not choose to terminate your participation, your monies on account are rolled over into the next trading period.</p>
+						<p>Yes. If you do not choose to terminate your participation, your monies on account are rolled over into the next trading period.</p>
 
 						<h2>How Do I receive information on my account?</h2>
-						<p>Yes.  You will receive monthly statements that detail your earnings as an investor.</p>
+						<p>Yes. You will receive monthly statements that detail your earnings as an investor.</p>
 
 						<h2>How Do I become a Participant?</h2>
 						<p>You can request information by completing the following information:</p>

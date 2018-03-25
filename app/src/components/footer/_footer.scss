@@ -1,5 +1,8 @@
 footer {
-	padding: 0 80px 30px;
+	padding: 0 $pagePaddingH-mobile 30px;
 	/* background-color: #0ff; */
 
+	@include desktop-up {
+		padding: 0 $pagePaddingH 30px;
+	}
 }
