@@ -7,6 +7,8 @@ import Banner 									from '../../components/banner/Banner'
 
 const propTypes = {}
 
+let root
+
 class FaqPage extends Component {
 	/**
 	 * Constructor
@@ -15,6 +17,14 @@ class FaqPage extends Component {
 	**/
 	constructor(props) {
 		super(props)
+
+		root = this
+	}
+
+	toggleAnswer(event) {
+		const trgt = event.currentTarget
+
+		trgt.classList.toggle('active')
 	}
 
 	/**
@@ -142,39 +152,54 @@ class FaqPage extends Component {
 						<h2>Program</h2>
 						<p>BIBAAL is offering participation in its TRP, which is, a 4 tier program with quarterly and yearly investment partnerships.</p>
 
-						<h2>Why You Should Choose BIBAAL?</h2>
-						<ul>
-							<li>Our trading solution is composed of our internally developed trading system.</li>
-							<li>Our program offers private and business investors a healthy residual revenue stream.</li>
-							<li>Affordable investment tiers.</li>
-						</ul>
+						<div className="faqNode" onClick={this.toggleAnswer}>
+							<h2>Why You Should Choose BIBAAL?</h2>
+							<ul>
+								<li>Our trading solution is composed of our internally developed trading system.</li>
+								<li>Our program offers private and business investors a healthy residual revenue stream.</li>
+								<li>Affordable investment tiers.</li>
+							</ul>
+						</div>
 
 						<h2>Trading Solution Investment Profiles</h2>
+						<div className="faqNode" onClick={this.toggleAnswer}>
+							<h2 className="faqNode__question">How long are the participation periods?</h2>
+							<p className="faqNode__answer">The participation programs are from 3 months, 6 months and 12 months.</p>
+						</div>
 
-						<h3>How long are the participation periods?</h3>
-						<p>The participation programs are from 3 months, 6 months and 12 months.</p>
+						<div className="faqNode" onClick={this.toggleAnswer}>
+							<h2 className="faqNode__question">How Do I Fund My Investment?</h2>
 
-						<h2>How Do I Fund My Investment?</h2>
+							<h3 className="faqNode__answer">You can pay by:</h3>
+							<ul>
+								<li>Bank Wire Transfer</li>
+								<li>Mobile Payment Services: Airtel, Tigo, MTN, & Vodaphone</li>
+								<li>Credit/Debit Card</li>
+								<li>PayPal Payment Service</li>
+							</ul>
+						</div>
 
-						<h3>You can pay by:</h3>
-						<ul>
-							<li>Bank Wire Transfer</li>
-							<li>Mobile Payment Services: Airtel, Tigo, MTN, & Vodaphone</li>
-							<li>Credit/Debit Card</li>
-							<li>PayPal Payment Service</li>
-						</ul>
 
-						<h2>When does my participation end?</h2>
-						<p>Whenever you choose to terminate your participation.</p>
+						<div className="faqNode" onClick={this.toggleAnswer}>
+							<h2>When does my participation end?</h2>
+							<p>Whenever you choose to terminate your participation.</p>
+						</div>
 
-						<h2>Will my account be rolled over every month?</h2>
-						<p>Yes. If you do not choose to terminate your participation, your monies on account are rolled over into the next trading period.</p>
 
-						<h2>How Do I receive information on my account?</h2>
-						<p>Yes. You will receive monthly statements that detail your earnings as an investor.</p>
+						<div className="faqNode" onClick={this.toggleAnswer}>
+							<h2>Will my account be rolled over every month?</h2>
+							<p>Yes. If you do not choose to terminate your participation, your monies on account are rolled over into the next trading period.</p>
+						</div>
 
-						<h2>How Do I become a Participant?</h2>
-						<p>You can request information by completing the following information:</p>
+						<div className="faqNode" onClick={this.toggleAnswer}>
+							<h2>How Do I receive information on my account?</h2>
+							<p>Yes. You will receive monthly statements that detail your earnings as an investor.</p>
+						</div>
+
+						<div className="faqNode" onClick={this.toggleAnswer}>
+							<h2>How Do I become a Participant?</h2>
+							<p>You can request information by completing the following information:</p>
+						</div>
 						
 					</section>
 				</Fragment>

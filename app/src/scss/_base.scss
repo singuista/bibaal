@@ -49,4 +49,67 @@ input {
 
 
 
+.faqNode {
+	height: 62px;
+	margin-bottom: 20px;
+	padding: 20px;
+	position: relative;
+	overflow-y: hidden;
+	cursor: default;
+	background-color: #eee;
+	transition: height .3s ease-in;
+
+	p {
+		cursor: inherit;
+	}
+
+	&.active {
+		height: auto;
+	}
+
+	&::before {
+		content: '';
+		top: 50%;
+		right: 20px;
+		padding: 3px;
+		display: inline-block;
+		position: absolute;
+		border: solid black;
+		border-width: 0 3px 3px 0;
+		transform: rotate(-45deg) translateY(-50%);
+	}
+
+	&__question {
+
+	}
+
+	&__answer {
+		margin: 20px 0 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
