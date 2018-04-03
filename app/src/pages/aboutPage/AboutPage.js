@@ -135,17 +135,17 @@ class AboutPage extends Component {
 					<section className="page aboutPageSection">
 
 						<h2>Welcome to BIBAAL</h2>
-						<p>We are extremely excited that you have taken the time to consider BIBAAL as you Trading Program Solutions Provider.</p>
+						<p>We are extremely excited that you have taken the time to consider BIBAAL as your Digital Trading Program Solutions Provider.</p>
 
-						<p>We would also like to take a moment to thank you for allowing us an opportunity to work with you. We promise that we will deliver efficient, competent and profitable solutions to you and provide an earnings platform unparalleled in the industry.</p>
+						<p>We would also like to take a moment to thank you for allowing us an opportunity to work with you.  We promise that we will deliver efficient, competent and profitable solutions to you and provide an earnings platform unparalleled in the industry.</p>
 
-						<p>BIBAAL is a Ghana company with an international outlook. We seek to serve the Ghana Investor as well as the International Investor. Our vision is to become a Global Online force for providing investors with a platform that tenders to their investment ability and not just the Status Quo. Our Programs are designed to incorporate the Private, Corporate and Group investor on multiple tiers.</p>
+						<p>BIBAAL is a Ghana company with an international outlook.  We seek to serve the Ghana Investor as well as the International Investor.  Our vision is to become a Global Online force for providing investors and partners with a platform that tenders to their investment ability and not just the Status Quo.  Our Programs are designed to incorporate the Private, Corporate and Group customer on multiple tiers.</p>
 
-						<p>We have built and developed relationships over a 10 year period and are looking forward to offering the benefits of these relationships to you our future investor. Thus allowing you to take part and benefit from over $4 Trillion Dollars traded every day in the world of forex, metals and commodities.</p>
+						<p>We have built and developed relationships over a 10 year period and are looking forward to offering the benefits of these relationships to you our future investor.  Thus allowing you to take part and benefit from over $4 Trillion Dollars traded every day in the world of forex, metals and commodities.</p>
 
-						<p>BIBAAL as a company views our investors and clients as the utmost important aspects of our business. Without YOU, there is no US! We promise to dedicate our team of efficient, insightful, prudent analysists and advisors to provide you our investor with the most current, modern and safest solutions with the highest earning potentials and minimum risks.</p>
+						<p>BIBAAL as a company views our investors and clients as the utmost important aspects of our business.  Without YOU, there is no US!  We promise to dedicate our team of efficient, insightful, prudent analysists and advisors to provide you our investor with the most current, modern and safest solutions with the highest earning potentials and minimum risks.</p>
 
-						<p>Our team works for you. We want our investors and clients to enjoy a fruitful relationship with us. We monitor your trade from beginning to end and ensure that your expectations are met 100%. It is in our absolute interest for you to be successful and profitable. We want you to let us work for you so that you may enjoy your profitable secondary income.</p>
+						<p>Our team works for you. We want our investors and clients to enjoy a fruitful relationship with us. We monitor your trade from beginning to end and ensure that your expectations are met 100%.  It is in our absolute interest for you to be successful and profitable. We want you to let us work for you so that you may enjoy your profitable secondary income.</p>
 
 						<p>Any time if you have any queries, complaints or requirement, feel free to contact us at any time via</p>
 

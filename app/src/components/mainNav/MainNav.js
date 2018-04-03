@@ -137,7 +137,7 @@ class MainNav extends Component {
 
 				<nav ref={mainNav => {this.mainNav = mainNav}} id="MainNav" className="mainNav" itemScope="itemscope" itemType="http://schema.org/http://schema.org/SiteNavigationElement">
 					<Link to="/" onClick={root.toggleNav}>Home</Link>
-					<Link to="/education" onClick={root.toggleNav}>Education</Link>
+					{/*<Link to="/education" onClick={root.toggleNav}>Education</Link>*/}
 					{/*<Link to="/news">News</Link>*/}
 					<Link to="/about-us" onClick={root.toggleNav}>About Us</Link>
 					<Link to="/faq" onClick={root.toggleNav}>FAQ</Link>

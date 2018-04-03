@@ -7,7 +7,7 @@ import Banner 									from '../../components/banner/Banner'
 
 const propTypes = {}
 
-class HomePage extends Component {
+class BusinessConsultingPage extends Component {
 	/**
 	 * Constructor
 	 * @param {object} react properties (Default)
@@ -25,8 +25,8 @@ class HomePage extends Component {
 	 * @return {void}
 	**/
 	componentDidCatch(errorString, errorInfo) {
-		console.error('Error in HomePage.js Page === ', errorString)
-		console.error('HomePage.js error stack === ', errorInfo)
+		console.error('Error in BusinessConsultingPage.js Page === ', errorString)
+		console.error('BusinessConsultingPage.js error stack === ', errorInfo)
 	}
 
 	/**
@@ -126,28 +126,24 @@ class HomePage extends Component {
 	**/
 	render() {
 		return (
-			<DocumentTitle title="Home">
+			<DocumentTitle title="Business Consulting">
 				<Fragment>
 					<Banner>
-						<h1>Welcome to Bibaal</h1>
+						<h1>Business Consulting</h1>
 					</Banner>
 
 					<nav className="miniNav">
+						<Link to="/">Home</Link>
 						<Link to="/trading">Trading</Link>
-						<Link to="/business-consulting">Business Consulting</Link>
 						<Link to="/education">Educational Services</Link>
 					</nav>
 
 					<section className="page homePageSection">
-						<h2>At Bibaal we provide our clients with investment strategies that provide long term value through our innovative investment philosophies:</h2>
+						
+						<p>Our business consultants works with clients on strategy, planning and problem solving, financial analysis and help clients develop business skills and knowledge. These topics range from designing a business model or marketing plan, to determining which financial vehicles best fit their business.</p>
 
-						<ul>
-							<li>We offer a profitable diversified investment package with significant intrinsic value.</li>
-							<li>Our solutions are long-term considerations for private investment.</li>
-							<li>We have disciplined investment strategies with sound innovative offerings for clients.</li>
-						</ul>
-
-						<p>Come see what BIBAAL is all about.</p>
+						<h3>Supply Chain & Logistics</h3>
+						<p>Supply chain management helps clients oversee materials, information, and finances as they move products from supplier to consumer. The three main flows of the supply chain are the product flow, the information flow and the financial flow. Managing the supply chain is a critical part of a businesses success, it helps a company maximize the bottom line.</p>
 					</section>
 
 				</Fragment>
@@ -156,9 +152,9 @@ class HomePage extends Component {
 	}
 }
 
-HomePage.propTypes = propTypes
+BusinessConsultingPage.propTypes = propTypes
 
-export default HomePage
+export default BusinessConsultingPage
 
 
 

@@ -7,7 +7,7 @@ import Banner 									from '../../components/banner/Banner'
 
 const propTypes = {}
 
-class HomePage extends Component {
+class TradingPage extends Component {
 	/**
 	 * Constructor
 	 * @param {object} react properties (Default)
@@ -25,8 +25,8 @@ class HomePage extends Component {
 	 * @return {void}
 	**/
 	componentDidCatch(errorString, errorInfo) {
-		console.error('Error in HomePage.js Page === ', errorString)
-		console.error('HomePage.js error stack === ', errorInfo)
+		console.error('Error in TradingPage.js Page === ', errorString)
+		console.error('TradingPage.js error stack === ', errorInfo)
 	}
 
 	/**
@@ -126,28 +126,27 @@ class HomePage extends Component {
 	**/
 	render() {
 		return (
-			<DocumentTitle title="Home">
+			<DocumentTitle title="Trading">
 				<Fragment>
 					<Banner>
-						<h1>Welcome to Bibaal</h1>
+						<h1>Trading</h1>
 					</Banner>
 
 					<nav className="miniNav">
-						<Link to="/trading">Trading</Link>
+						<Link to="/">Home</Link>
 						<Link to="/business-consulting">Business Consulting</Link>
 						<Link to="/education">Educational Services</Link>
 					</nav>
 
 					<section className="page homePageSection">
-						<h2>At Bibaal we provide our clients with investment strategies that provide long term value through our innovative investment philosophies:</h2>
+						<h3>Forex Trading Solutions</h3>
+						<p>As a FOREX solutions provider, we can offer a hosting solution to those seeking to own their own platform but cannot afford the cost of ownership or is looking for a great addition to their portfolio but do not wish to run such a service.</p>
 
-						<ul>
-							<li>We offer a profitable diversified investment package with significant intrinsic value.</li>
-							<li>Our solutions are long-term considerations for private investment.</li>
-							<li>We have disciplined investment strategies with sound innovative offerings for clients.</li>
-						</ul>
+						<h3>Bullion Trade Management</h3>
+						<p>BTM is a strong internal application for any firm and an incredible revenue source. This Platform application can be made into a priceless customer offered trade application for customers.</p>
 
-						<p>Come see what BIBAAL is all about.</p>
+						<h3>Oil Trading</h3>
+						<p>Oil Trading is a profitable industry. The fact that oil has so many uses means that it is one of the most traded and volatile markets in the world. We offer clients an affordable opportunity to benefit from the profitable oil trade.</p>
 					</section>
 
 				</Fragment>
@@ -156,9 +155,9 @@ class HomePage extends Component {
 	}
 }
 
-HomePage.propTypes = propTypes
+TradingPage.propTypes = propTypes
 
-export default HomePage
+export default TradingPage
 
 
 

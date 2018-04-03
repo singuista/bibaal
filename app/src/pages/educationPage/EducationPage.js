@@ -1,7 +1,7 @@
 'use strict'
 
 import {Fragment, Component}    				from 'react'
-//import {Link}        							from 'react-router'
+import { Link }        							from 'react-router-dom'
 import DocumentTitle 							from 'react-document-title'
 import Banner 									from '../../components/banner/Banner'
 
@@ -131,6 +131,12 @@ class EducationPage extends Component {
 					<Banner>
 						<h1>Education</h1>
 					</Banner>
+
+					<nav className="miniNav">
+						<Link to="/">Home</Link>
+						<Link to="/trading">Trading</Link>
+						<Link to="/business-consulting">Business Consulting</Link>
+					</nav>
 
 					<section className="page educationPageSection">
 						<p>BIBAAL offers several layers of Training Programs.</p>
