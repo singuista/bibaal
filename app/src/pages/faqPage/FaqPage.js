@@ -161,7 +161,6 @@ class FaqPage extends Component {
 							</ul>
 						</div>
 
-						<h2>Trading Solution Investment Profiles</h2>
 						<div className="faqNode" onClick={this.toggleAnswer}>
 							<h2 className="faqNode__question">How long are the participation periods?</h2>
 							<p className="faqNode__answer">The participation programs are from 3 months, 6 months and 12 months.</p>

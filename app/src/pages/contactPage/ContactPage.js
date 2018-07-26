@@ -56,6 +56,8 @@ class ContactPage extends Component {
 
 		const postStr = Helpers.serializeObj(body)
 
+		console.log('postStr === ', postStr)
+
 		instance.post('/email.php', postStr).then(res => {
 			root.setState({emailSent: true})
 		}).catch(err => {

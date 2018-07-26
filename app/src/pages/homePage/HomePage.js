@@ -129,7 +129,7 @@ class HomePage extends Component {
 			<DocumentTitle title="Home">
 				<Fragment>
 					<Banner>
-						<h1>Welcome to Bibaal</h1>
+						<h1>Welcome to BIBAAL</h1>
 					</Banner>
 
 					<nav className="miniNav">
@@ -139,7 +139,7 @@ class HomePage extends Component {
 					</nav>
 
 					<section className="page homePageSection">
-						<h2>At Bibaal we provide our clients with investment strategies that provide long term value through our innovative investment philosophies:</h2>
+						<h2>At BIBAAL we provide our clients with investment strategies that provide long term value through our innovative investment philosophies:</h2>
 
 						<ul>
 							<li>We offer a profitable diversified investment package with significant intrinsic value.</li>

@@ -128,7 +128,7 @@ class Footer extends Component {
 	**/
 	render() {
 	    return (
-	    	<footer>copyright &copy; {this.outputYear()} by Bibaal. All Rights Reserved.</footer>
+	    	<footer>Copyright &copy; {this.outputYear()} by BIBAAL. All Rights Reserved.</footer>
 		)
 	}
 }

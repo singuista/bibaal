@@ -154,7 +154,7 @@ class AboutPage extends Component {
 						<p>Thank You.</p>
 
 						<p>Sincerely Yours,</p>
-						<p>Michael Van-Yaadar (MD, BIBAAL)</p>
+						<p>The BIBAAL Team</p>
 						<br />
 						<br />
 
