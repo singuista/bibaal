@@ -135,6 +135,7 @@ class BusinessConsultingPage extends Component {
 					<nav className="miniNav">
 						<Link to="/">Home</Link>
 						<Link to="/trading">Trading</Link>
+						<Link to="/iml">iMarketLive</Link>
 						<Link to="/education">Educational Services</Link>
 					</nav>
 

@@ -30,7 +30,7 @@ class ContactPage extends Component {
 		root = this
 
 		this.state = {
-			emailSent: false,
+			emailSent: false
 		}
 	}
 
@@ -38,6 +38,7 @@ class ContactPage extends Component {
 		event.preventDefault()
 
 		const fname 		= root.emailForm.querySelector('input[name="fName"]').value.length > 0 ? root.emailForm.querySelector('input[name="fName"]').value : false
+		const subject 		= root.subjectField.value ? root.subjectField.value : 'New Bibaal Inquiery' 
 		const lName 		= root.emailForm.querySelector('input[name="lName"]').value.length > 0 ? root.emailForm.querySelector('input[name="lName"]').value : false
 		const fullName 		= `${fname ? fname : ''} ${lName ? lName : ''} `
 		const address 		= root.emailForm.querySelector('input[name="address"]').value.length > 0 ? `${root.emailForm.querySelector('input[name="address"]').value} ` : ''
@@ -49,14 +50,17 @@ class ContactPage extends Component {
 		const message 		= `${fullName} (${email}) is making an inquiery with the following details :\n${address}\n${city}\n${country}\n${telephone}\n${language}`
 
 		const body = {
-			name: fullName,		
+			name: fullName,
+			subject: subject,		
 			email: email,
 			message: message
 		}
 
 		const postStr = Helpers.serializeObj(body)
 
-		console.log('postStr === ', postStr)
+		//console.log('postStr === ', postStr)
+
+		//return
 
 		instance.post('/email.php', postStr).then(res => {
 			root.setState({emailSent: true})
@@ -184,10 +188,19 @@ class ContactPage extends Component {
 						<h2>You can request information by completing the following information:</h2>
 
 						{!this.state.emailSent ?  <form ref={emailForm => {root.emailForm = emailForm} }>
+							<select ref={subjectField => {this.subjectField = subjectField}}>
+								<option defaultValue value="">-- Choose Subject --</option>
+								<option value="General Info">General Info</option>
+								<option value="Forex Training">Forex Training</option>
+								<option value="Forex Consultation">Forex Consultation</option>
+								<option value="Crypto Currency Consultation">Crypto Currency Consultation</option>
+								<option value="IMarketsLive Group Info">IMarketsLive Group Info</option>
+							</select>
 							<input type="text" placeholder="First Name" name="fName" />
 							<input type="text" placeholder="Last Name" name="lName" />
 							<input type="text" placeholder="Address" name="address" />
 							<input type="text" placeholder="City" name="city" />
+							<input type="text" placeholder="State / Providence" name="state" />
 							<input type="text" placeholder="Country" name="country" />
 							<input type="text" placeholder="Telephone" name="telephone" />
 							<input type="text" placeholder="Email" name="email" />
@@ -196,7 +209,11 @@ class ContactPage extends Component {
 							<button onClick={this.sendForm} className="formSubmit">Submit</button>
 						</form>
 
-						:  <div>Thank you. A sale rep will get back to you shortly</div>}
+						:  <div>
+								Thank you inquiring into BIBAAL's services.
+								<br />
+								A member of the BIBAAL team will contact you shortly.
+							</div>}
 
 					</section>
 				</Fragment>

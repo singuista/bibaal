@@ -17,6 +17,7 @@ import AboutPage                    						from './pages/aboutPage/AboutPage'
 import FaqPage	                    						from './pages/faqPage/FaqPage'
 import ContactPage	                    					from './pages/contactPage/ContactPage'
 import EducationPage	                    				from './pages/educationPage/EducationPage'
+import ImlPage 												from './pages/imlPage/ImlPage'
 
 //example pages
 /*import AnimationPage                    					from './examplePages/animationPage/AnimationPage'
@@ -34,6 +35,7 @@ export default (
 				{/*<Route exact path="/" component={HomePage} />*/}
 				<Route exact path="/" component={HomePage} />
 				<Route exact path="/education" component={EducationPage} />
+				<Route exact path="/iml" component={ImlPage} />
 				<Route exact path="/trading" component={TradingPage} />
 				<Route exact path="/business-consulting" component={BusinessConsultingPage} />
 				{/*<Route exact path="/news" component={HomePage} />*/}

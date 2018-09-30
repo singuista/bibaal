@@ -134,8 +134,9 @@ class TradingPage extends Component {
 
 					<nav className="miniNav">
 						<Link to="/">Home</Link>
-						<Link to="/business-consulting">Business Consulting</Link>
 						<Link to="/education">Educational Services</Link>
+						<Link to="/iml">iMarketLive</Link>
+						<Link to="/business-consulting">Business Consulting</Link>
 					</nav>
 
 					<section className="page homePageSection">
